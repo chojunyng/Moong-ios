@@ -21,6 +21,7 @@ class KeywordVC : UIViewController {
     let reuseIdentifier = "KeywordCell"
     let MaximumNumberOfTaps = 3
     var selectedCells = NSMutableArray()
+    var keywords = String()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -67,7 +68,6 @@ extension KeywordVC : UICollectionViewDelegateFlowLayout {
         guard collectionViewLayout is UICollectionViewFlowLayout else {
             return .zero
         }
-        
         let cellCount = CGFloat(collectionView.numberOfItems(inSection: section))
         
         return cellCount > 0 ? UIEdgeInsetsMake(26, 128.5, 0, 128.5) : .zero

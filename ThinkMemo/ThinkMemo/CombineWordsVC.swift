@@ -10,18 +10,26 @@ import UIKit
 
 class CombineWordsVC: UIViewController {
     
-    @IBOutlet var textView: UITextView! {
+    @IBOutlet var clearTextView: UITextView! {
         didSet {
-            textView.delegate = self
-            
+            clearTextView.layer.cornerRadius = 30
+            clearTextView.layer.backgroundColor = UIColor.white.cgColor
+            clearTextView.layer.shadowColor = UIColor.darkGray.cgColor
+            clearTextView.layer.masksToBounds = false
+            clearTextView.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
+            clearTextView.layer.shadowOpacity = 0.1
+            clearTextView.layer.shadowRadius = 30
         }
     }
+    
     @IBOutlet var wordsColvw: UICollectionView! {
         didSet {
             wordsColvw.dataSource = self
             wordsColvw.register(UINib(nibName: "KeywordCell", bundle: nil), forCellWithReuseIdentifier: "KeywordCell")
         }
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

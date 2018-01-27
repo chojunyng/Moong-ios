@@ -31,7 +31,7 @@ class KeywordCell: UICollectionViewCell {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         self.layer.cornerRadius = 15
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.shadowColor = UIColor.darkGray.cgColor
