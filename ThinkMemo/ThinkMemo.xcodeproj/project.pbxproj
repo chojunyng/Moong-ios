@@ -7,18 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		108F0EBF201CD08500050712 /* MemoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F0EBC201CD08500050712 /* MemoDAO.swift */; };
+		108F0EC0201CD08500050712 /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F0EBD201CD08500050712 /* DataSync.swift */; };
+		108F0EC1201CD08500050712 /* MomoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F0EBE201CD08500050712 /* MomoData.swift */; };
+		108F0ECB201CD14A00050712 /* ThinkMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 108F0EC9201CD14A00050712 /* ThinkMemo.xcdatamodeld */; };
 		30242D1D201C64FB00B6B633 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D1C201C64FB00B6B633 /* AppDelegate.swift */; };
 		30242D1F201C64FB00B6B633 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D1E201C64FB00B6B633 /* ViewController.swift */; };
 		30242D22201C64FB00B6B633 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30242D20201C64FB00B6B633 /* Main.storyboard */; };
 		30242D24201C64FB00B6B633 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30242D23201C64FB00B6B633 /* Assets.xcassets */; };
 		30242D27201C64FB00B6B633 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30242D25201C64FB00B6B633 /* LaunchScreen.storyboard */; };
+
 		722F9E37201C6BA0003F4757 /* NewMemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722F9E36201C6BA0003F4757 /* NewMemo.storyboard */; };
 		722F9E3F201C6E9F003F4757 /* NewMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */; };
 		722F9E41201C7EEC003F4757 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E40201C7EEC003F4757 /* DetailViewController.swift */; };
 		722F9E43201CB686003F4757 /* DeleteMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */; };
+
+		83A24D8FC4B23156EFC8FDE0 /* Pods_ThinkMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13DFBCF5023F1A81BC8A246 /* Pods_ThinkMemo.framework */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		108F0EBC201CD08500050712 /* MemoDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoDAO.swift; sourceTree = "<group>"; };
+		108F0EBD201CD08500050712 /* DataSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSync.swift; sourceTree = "<group>"; };
+		108F0EBE201CD08500050712 /* MomoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomoData.swift; sourceTree = "<group>"; };
+		108F0ECA201CD14A00050712 /* ThinkMemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThinkMemo.xcdatamodel; sourceTree = "<group>"; };
+		22D16A882DC4DEA3BC33D763 /* Pods-ThinkMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkMemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkMemo/Pods-ThinkMemo.release.xcconfig"; sourceTree = "<group>"; };
 		30242D19201C64FB00B6B633 /* ThinkMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30242D1C201C64FB00B6B633 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30242D1E201C64FB00B6B633 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,10 +39,15 @@
 		30242D23201C64FB00B6B633 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30242D26201C64FB00B6B633 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30242D28201C64FB00B6B633 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+
 		722F9E36201C6BA0003F4757 /* NewMemo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewMemo.storyboard; sourceTree = "<group>"; };
 		722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoViewController.swift; sourceTree = "<group>"; };
 		722F9E40201C7EEC003F4757 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMemoViewController.swift; sourceTree = "<group>"; };
+
+		44E75571A3F875D42CE4EE27 /* Pods-ThinkMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkMemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkMemo/Pods-ThinkMemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C13DFBCF5023F1A81BC8A246 /* Pods_ThinkMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThinkMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +55,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A24D8FC4B23156EFC8FDE0 /* Pods_ThinkMemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		108F0EB5201CD05B00050712 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				108F0EBD201CD08500050712 /* DataSync.swift */,
+				108F0EBC201CD08500050712 /* MemoDAO.swift */,
+				108F0EBE201CD08500050712 /* MomoData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		30242D10201C64FB00B6B633 = {
 			isa = PBXGroup;
 			children = (
 				30242D1B201C64FB00B6B633 /* ThinkMemo */,
 				30242D1A201C64FB00B6B633 /* Products */,
+				3DBB79BFEC4C65A1B020D406 /* Pods */,
+				B62FFA3CDACCE88A6F624EB6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +93,7 @@
 		30242D1B201C64FB00B6B633 /* ThinkMemo */ = {
 			isa = PBXGroup;
 			children = (
+				108F0EB5201CD05B00050712 /* Data */,
 				30242D1C201C64FB00B6B633 /* AppDelegate.swift */,
 				30242D1E201C64FB00B6B633 /* ViewController.swift */,
 				722F9E40201C7EEC003F4757 /* DetailViewController.swift */,
@@ -72,8 +104,26 @@
 				30242D23201C64FB00B6B633 /* Assets.xcassets */,
 				30242D25201C64FB00B6B633 /* LaunchScreen.storyboard */,
 				30242D28201C64FB00B6B633 /* Info.plist */,
+				108F0EC9201CD14A00050712 /* ThinkMemo.xcdatamodeld */,
 			);
 			path = ThinkMemo;
+			sourceTree = "<group>";
+		};
+		3DBB79BFEC4C65A1B020D406 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				44E75571A3F875D42CE4EE27 /* Pods-ThinkMemo.debug.xcconfig */,
+				22D16A882DC4DEA3BC33D763 /* Pods-ThinkMemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B62FFA3CDACCE88A6F624EB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C13DFBCF5023F1A81BC8A246 /* Pods_ThinkMemo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +133,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30242D2B201C64FB00B6B633 /* Build configuration list for PBXNativeTarget "ThinkMemo" */;
 			buildPhases = (
+				88DAEF92605A67C2FC307141 /* [CP] Check Pods Manifest.lock */,
 				30242D15201C64FB00B6B633 /* Sources */,
 				30242D16201C64FB00B6B633 /* Frameworks */,
 				30242D17201C64FB00B6B633 /* Resources */,
+				19EA703492DAA057D6335D64 /* [CP] Embed Pods Frameworks */,
+				13735528277B8A475FE42E91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,13 +197,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13735528277B8A475FE42E91 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThinkMemo/Pods-ThinkMemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19EA703492DAA057D6335D64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ThinkMemo/Pods-ThinkMemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThinkMemo/Pods-ThinkMemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88DAEF92605A67C2FC307141 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ThinkMemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		30242D15201C64FB00B6B633 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				108F0ECB201CD14A00050712 /* ThinkMemo.xcdatamodeld in Sources */,
+				108F0EC0201CD08500050712 /* DataSync.swift in Sources */,
 				30242D1F201C64FB00B6B633 /* ViewController.swift in Sources */,
+
 				722F9E3F201C6E9F003F4757 /* NewMemoViewController.swift in Sources */,
+
+				108F0EC1201CD08500050712 /* MomoData.swift in Sources */,
+				108F0EBF201CD08500050712 /* MemoDAO.swift in Sources */,
+
 				30242D1D201C64FB00B6B633 /* AppDelegate.swift in Sources */,
 				722F9E43201CB686003F4757 /* DeleteMemoViewController.swift in Sources */,
 				722F9E41201C7EEC003F4757 /* DetailViewController.swift in Sources */,
@@ -288,6 +402,7 @@
 		};
 		30242D2C201C64FB00B6B633 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44E75571A3F875D42CE4EE27 /* Pods-ThinkMemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +418,7 @@
 		};
 		30242D2D201C64FB00B6B633 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22D16A882DC4DEA3BC33D763 /* Pods-ThinkMemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +454,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		108F0EC9201CD14A00050712 /* ThinkMemo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				108F0ECA201CD14A00050712 /* ThinkMemo.xcdatamodel */,
+			);
+			currentVersion = 108F0ECA201CD14A00050712 /* ThinkMemo.xcdatamodel */;
+			path = ThinkMemo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 30242D11201C64FB00B6B633 /* Project object */;
 }
