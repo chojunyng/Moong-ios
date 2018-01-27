@@ -129,12 +129,12 @@ class DetailViewController: UIViewController {
         self.view.addSubview(deleteButton)
         self.view.addConstraints(deleteButtonConstraints())
         
-        self.view.addSubview(resultBaseView)
-        self.view.addConstraints(resultBaseViewConstraints())
-        self.view.addSubview(resultTextView)
-        self.view.addConstraints(resultTextViewConstraints())
-        self.view.addSubview(divisionView)
-        self.view.addConstraints(divisionViewConstraints())
+//        self.view.addSubview(resultBaseView)
+//        self.view.addConstraints(resultBaseViewConstraints())
+//        self.view.addSubview(resultTextView)
+//        self.view.addConstraints(resultTextViewConstraints())
+//        self.view.addSubview(divisionView)
+//        self.view.addConstraints(divisionViewConstraints())
         
         self.view.addSubview(contentTextView)
         if resultBaseView.isDescendant(of: self.view) {
