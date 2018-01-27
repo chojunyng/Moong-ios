@@ -117,10 +117,9 @@ class DataSync {
         // 전송할 값 설정
         let pk = item.pk
         let url = "http://13.125.76.112/api/board/\(pk)/"
-        print(pk)
+        
         _ = Alamofire.request(url, method: .delete, encoding: JSONEncoding.default)
         
-        print("리무브")
     }
 }
 
