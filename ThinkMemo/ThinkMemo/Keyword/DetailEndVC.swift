@@ -10,6 +10,8 @@ import UIKit
 
 class DetailEndVC: UIViewController {
 
+    let reuseidentifier = "KeywordCell"
+    
     @IBOutlet var containerView: UIView! {
         didSet {
             containerView.layer.cornerRadius = 30
@@ -21,6 +23,21 @@ class DetailEndVC: UIViewController {
             containerView.layer.shadowRadius = 30
         }
     }
+    
+    @IBOutlet var wordsColvw: UICollectionView! {
+        didSet {
+            wordsColvw.delegate = self
+            wordsColvw.dataSource = self
+            wordsColvw.register(UINib(nibName: "KeywordCell", bundle: nil), forCellWithReuseIdentifier: reuseidentifier)
+            
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,15 +49,32 @@ class DetailEndVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension DetailEndVC : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize{
+        
+        
+        if indexPath.item == 1 {
+            return CGSize(width: 111, height: 30)
+        }
+        return CGSize(width: 86, height: 30)
     }
-    */
+}
 
+
+
+extension DetailEndVC : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = wordsColvw.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath) as! KeywordCell
+        cell.backgroundColor = UIColor.init(hex: 0xffcd00)
+        
+        return cell
+    }
 }

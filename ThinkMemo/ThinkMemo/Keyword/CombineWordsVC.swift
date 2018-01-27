@@ -87,15 +87,7 @@ extension CombineWordsVC : UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension CombineWordsVC : UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        textCountLabel.text = "(" + String(textView.text.count) + "/60)자"
-    }
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-        return newText.count <= 60
-    }
-}
+
 
 extension CombineWordsVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -107,6 +99,16 @@ extension CombineWordsVC : UICollectionViewDataSource {
         cell.backgroundColor = UIColor.init(hex: 0xffcd00)
         
         return cell
+    }
+}
+
+extension CombineWordsVC : UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        textCountLabel.text = "(" + String(textView.text.count) + "/60)자"
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        return newText.count <= 60
     }
 }
 
