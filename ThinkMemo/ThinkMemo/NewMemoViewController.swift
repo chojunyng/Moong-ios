@@ -18,6 +18,7 @@ class NewMemoViewController: UIViewController {
     var subject: String!
     lazy var dao = MemoDAO()
     
+    
     @IBOutlet var saveButton: UIButton!
     @IBOutlet private var textCountLabel: UILabel!
     @IBOutlet private var memoView: UITextView! {

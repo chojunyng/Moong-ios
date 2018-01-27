@@ -49,12 +49,12 @@ class DetailViewController: UIViewController {
         let editButton = UIButton(type: .system)
         editButton.setBackgroundImage(#imageLiteral(resourceName: "edit"), for: .normal)
         editButton.tintColor = UIColor(red: 1.0, green: 198.0/255.0, blue: 0.0, alpha: 1.0)
-        editButton.addTarget(self, action: #selector(editButtonDidTapped(_:)), for: .touchUpInside)
+//        editButton.addTarget(self, action: #selector(editButtonDidTapped(_:)), for: .touchUpInside)
         editButton.translatesAutoresizingMaskIntoConstraints = false
         
         return editButton
     }()
-    
+
     private lazy var deleteButton: UIButton = {
         let deleteButton = UIButton(type: .system)
         deleteButton.setBackgroundImage(#imageLiteral(resourceName: "delete"), for: .normal)
@@ -157,15 +157,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    @objc private func editButtonDidTapped(_ sender: UIButton) {
-//        let newMemoStoryboard = UIStoryboard(name: "NewMemo", bundle: nil)
-//        if let editMemoViewController = newMemoStoryboard.instantiateViewController(withIdentifier: "EditMemoViewController") as? EditMemoViewController {
-//
-//            editMemoViewController.editText = data.content
-//            self.present(editMemoViewController, animated: true, completion: nil)
-//        }
-    }
-    
     @objc private func deleteButtonDidTapped(_ sender: UIButton) {
         if let deleteMemoViewController = self.storyboard?.instantiateViewController(withIdentifier: "DeleteMemoViewController") as? DeleteMemoViewController {
             deleteMemoViewController.data = data
@@ -219,11 +210,12 @@ class DetailViewController: UIViewController {
         
         defer {
             
-            let keywordVC = UIStoryboard(name: "Keyword", bundle: nil).instantiateViewController(withIdentifier: "KerwordVC") as! KeywordVC
+            if let keywordVC = UIStoryboard(name: "Keyword", bundle: nil).instantiateViewController(withIdentifier: "KeywordVC") as? KeywordVC {
             
-            keywordVC.keywords = item.keywords!
+                keywordVC.keywords = item.keywords!
             
-            self.present(keywordVC, animated: false, completion: nil)
+                self.present(keywordVC, animated: false, completion: nil)
+            }
         }
         
     }

@@ -23,6 +23,10 @@ class KeywordVC : UIViewController {
         }
     }
     
+    
+    
+    
+    
     let reuseIdentifier = "KeywordCell"
     let MaximumNumberOfTaps = 3
     var selectedCells = NSMutableArray()
@@ -51,7 +55,7 @@ class KeywordVC : UIViewController {
 
 extension KeywordVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return keywords.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,6 +63,7 @@ extension KeywordVC : UICollectionViewDataSource {
         let cell = keywordColvw.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! KeywordCell
         
         cell.isCellSelected = selectedCells.contains(indexPath)
+        cell.title.text = "#\(keywords[indexPath.item])"
         
         return cell
     }
