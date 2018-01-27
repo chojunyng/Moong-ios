@@ -43,14 +43,25 @@ extension KeywordViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = keywordColvw.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! KeywordCell
+        
+        
+//        cell.layer.masksToBounds = false
+//        cell.layer.shadowOffset = CGSize(width: 1, height: 1)
+//        cell.layer.shadowRadius = 1.0
+//        cell.layer.shadowColor = UIColor.gray.cgColor
+//        cell.layer.shadowOpacity = 1.0
+        
         cell.layer.cornerRadius = 15
-        cell.layer.shadowOffset = CGSize(width: 0, height: 1)
-        cell.layer.shadowRadius = 2
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOpacity = 0.2
+        cell.layer.backgroundColor = UIColor.white.cgColor
+        cell.layer.shadowColor = UIColor.darkGray.cgColor
+        cell.layer.masksToBounds = false
+        cell.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
+        cell.layer.shadowOpacity = 0.1
+        cell.layer.shadowRadius = 15.0
         
         if selectedCells.contains(indexPath) {
             cell.isSelected = true
+            cell.backgroundColor = UIColor.init(hex: 0xffcd00)
         }
         else{
             cell.isSelected = false
@@ -61,7 +72,6 @@ extension KeywordViewController : UICollectionViewDataSource {
     
     // select, deselect cells
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("NO")
         selectedCells.add(indexPath)
         keywordColvw.reloadItems(at: [indexPath])
     }
@@ -97,9 +107,20 @@ extension KeywordViewController : UICollectionViewDelegateFlowLayout {
 //                return UIEdgeInsetsMake(0, padding, 0, 0)
 //            }
             
-            return UIEdgeInsetsMake(0, 128.5, 0, 128.5)
+            return UIEdgeInsetsMake(26, 128.5, 0, 128.5)
         }
         
         return .zero
+    }
+}
+
+extension UIColor {
+    convenience init(hex: Int) {
+        let components = (
+            R: CGFloat((hex >> 16) & 0xff) / 255,
+            G: CGFloat((hex >> 08) & 0xff) / 255,
+            B: CGFloat((hex >> 00) & 0xff) / 255
+        )
+        self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
     }
 }
