@@ -162,12 +162,12 @@ class DetailViewController: UIViewController {
     }
     
     @objc private func editButtonDidTapped(_ sender: UIButton) {
-        let newMemoStoryboard = UIStoryboard(name: "NewMemo", bundle: nil)
-        if let editMemoViewController = newMemoStoryboard.instantiateViewController(withIdentifier: "EditMemoViewController") as? EditMemoViewController {
-            
-            editMemoViewController.editText = data.content
-            self.present(editMemoViewController, animated: true, completion: nil)
-        }
+//        let newMemoStoryboard = UIStoryboard(name: "NewMemo", bundle: nil)
+//        if let editMemoViewController = newMemoStoryboard.instantiateViewController(withIdentifier: "EditMemoViewController") as? EditMemoViewController {
+//
+//            editMemoViewController.editText = data.content
+//            self.present(editMemoViewController, animated: true, completion: nil)
+//        }
     }
     
     @objc private func deleteButtonDidTapped(_ sender: UIButton) {
