@@ -1,32 +1,16 @@
 //
-//  CombineViewController
+//  DetailEndVC.swift
 //  ThinkMemo
 //
-//  Created by BLU on 2018. 1. 27..
+//  Created by BLU on 2018. 1. 28..
 //  Copyright © 2018년 Unithon. All rights reserved.
 //
 
 import UIKit
 
-class CombineWordsVC: UIViewController {
-    
+class DetailEndVC: UIViewController {
+
     let reuseidentifier = "KeywordCell"
-    
-    @IBOutlet var wordsColvw: UICollectionView! {
-        didSet {
-            wordsColvw.delegate = self
-            wordsColvw.dataSource = self
-            wordsColvw.register(UINib(nibName: "KeywordCell", bundle: nil), forCellWithReuseIdentifier: reuseidentifier)
-            
-        }
-    }
-    @IBOutlet var backButton: UIButton! {
-        didSet {
-            backButton.addTarget(self,
-                                 action: #selector(popToKeywordVC),
-                                 for: .touchUpInside)
-        }
-    }
     
     @IBOutlet var containerView: UIView! {
         didSet {
@@ -39,25 +23,27 @@ class CombineWordsVC: UIViewController {
             containerView.layer.shadowRadius = 30
         }
     }
-    @IBOutlet var textView: UITextView! {
+    
+    @IBOutlet var wordsColvw: UICollectionView! {
         didSet {
-            textView.delegate = self
+            wordsColvw.delegate = self
+            wordsColvw.dataSource = self
+            wordsColvw.register(UINib(nibName: "KeywordCell", bundle: nil), forCellWithReuseIdentifier: reuseidentifier)
+            
         }
     }
     
-    @IBOutlet var textCountLabel: UILabel!
-    
-    let tapGesture = UITapGestureRecognizer(
-        target: self,
-        action: #selector(keyboardWillHide)
-    )
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addGestureRecognizer(tapGesture)
+
         // Do any additional setup after loading the view.
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,16 +51,7 @@ class CombineWordsVC: UIViewController {
     
 }
 
-
-extension CombineWordsVC {
-    @objc func keyboardWillHide() {
-        self.textView.endEditing(true)
-    }
-    @objc func popToKeywordVC() {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-}
-extension CombineWordsVC : UICollectionViewDelegateFlowLayout {
+extension DetailEndVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize{
@@ -89,7 +66,7 @@ extension CombineWordsVC : UICollectionViewDelegateFlowLayout {
 
 
 
-extension CombineWordsVC : UICollectionViewDataSource {
+extension DetailEndVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -101,14 +78,3 @@ extension CombineWordsVC : UICollectionViewDataSource {
         return cell
     }
 }
-
-extension CombineWordsVC : UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        textCountLabel.text = "(" + String(textView.text.count) + "/60)자"
-    }
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-        return newText.count <= 60
-    }
-}
-
