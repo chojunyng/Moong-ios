@@ -12,7 +12,7 @@
 		30242D22201C64FB00B6B633 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30242D20201C64FB00B6B633 /* Main.storyboard */; };
 		30242D24201C64FB00B6B633 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30242D23201C64FB00B6B633 /* Assets.xcassets */; };
 		30242D27201C64FB00B6B633 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30242D25201C64FB00B6B633 /* LaunchScreen.storyboard */; };
-		30242D2F201C690000B6B633 /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D2E201C690000B6B633 /* KeywordViewController.swift */; };
+		30242D2F201C690000B6B633 /* KeywordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D2E201C690000B6B633 /* KeywordVC.swift */; };
 		30242D33201C8E2C00B6B633 /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D32201C8E2C00B6B633 /* KeywordCell.swift */; };
 		30242D37201CA79300B6B633 /* CombineWordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D36201CA79300B6B633 /* CombineWordsVC.swift */; };
 		30B7ED36201CBCAA00392D80 /* KeywordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B7ED35201CBCAA00392D80 /* KeywordCell.xib */; };
@@ -26,7 +26,7 @@
 		30242D23201C64FB00B6B633 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30242D26201C64FB00B6B633 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30242D28201C64FB00B6B633 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30242D2E201C690000B6B633 /* KeywordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
+		30242D2E201C690000B6B633 /* KeywordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordVC.swift; sourceTree = "<group>"; };
 		30242D32201C8E2C00B6B633 /* KeywordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
 		30242D36201CA79300B6B633 /* CombineWordsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineWordsVC.swift; sourceTree = "<group>"; };
 		30B7ED35201CBCAA00392D80 /* KeywordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeywordCell.xib; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 			children = (
 				30242D1C201C64FB00B6B633 /* AppDelegate.swift */,
 				30242D1E201C64FB00B6B633 /* ViewController.swift */,
-				30242D2E201C690000B6B633 /* KeywordViewController.swift */,
+				30242D2E201C690000B6B633 /* KeywordVC.swift */,
 				30242D32201C8E2C00B6B633 /* KeywordCell.swift */,
 				30B7ED35201CBCAA00392D80 /* KeywordCell.xib */,
 				30242D36201CA79300B6B633 /* CombineWordsVC.swift */,
@@ -149,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30242D2F201C690000B6B633 /* KeywordViewController.swift in Sources */,
+				30242D2F201C690000B6B633 /* KeywordVC.swift in Sources */,
 				30242D37201CA79300B6B633 /* CombineWordsVC.swift in Sources */,
 				30242D33201C8E2C00B6B633 /* KeywordCell.swift in Sources */,
 				30242D1F201C64FB00B6B633 /* ViewController.swift in Sources */,

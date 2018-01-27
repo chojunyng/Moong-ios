@@ -1,5 +1,5 @@
 //
-//  KeywordViewController.swift
+//  KeywordVC
 //  ThinkMemo
 //
 //  Created by BLU on 2018. 1. 27..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KeywordViewController : UIViewController {
+class KeywordVC : UIViewController {
     
     @IBOutlet var keywordColvw: UICollectionView! {
         didSet {
@@ -19,16 +19,19 @@ class KeywordViewController : UIViewController {
         }
     }
     
-    var selectedCells : NSMutableArray = []
-    var keywords : [String] = []
+    var selectedCells = NSMutableArray()
+    var keywords = [String]()
     let reuseIdentifier = "KeywordCell"
     
-//    var isCellSelected: Bool {
-//
-//    }
+    var isCellSelected = false {
+        didSet {
+            
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = true
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +39,7 @@ class KeywordViewController : UIViewController {
 
 }
 
-extension KeywordViewController : UICollectionViewDataSource {
+extension KeywordVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -51,6 +54,7 @@ extension KeywordViewController : UICollectionViewDataSource {
         }
         else{
             cell.isSelected = false
+            cell.backgroundColor = UIColor.white
         }
         
         return cell
@@ -69,11 +73,11 @@ extension KeywordViewController : UICollectionViewDataSource {
     
 }
 
-extension KeywordViewController : UICollectionViewDelegate {
+extension KeywordVC : UICollectionViewDelegate {
     
 }
 
-extension KeywordViewController : UICollectionViewDelegateFlowLayout {
+extension KeywordVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         guard collectionViewLayout is UICollectionViewFlowLayout else {
