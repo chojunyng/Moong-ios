@@ -12,14 +12,9 @@ class DeleteMemoViewController: UIViewController {
     
     // MARK: Properties
 
-    @IBOutlet private var doneButton: UIButton! {
-        didSet {
-            doneButton.layer.borderWidth = 1.0
-            doneButton.layer.borderColor = UIColor(red: 1.0,
-                                                   green: 205.0/255.0,
-                                                   blue: 0.0, alpha: 1.0).cgColor
-        }
-    }
+    var data: MemoData!
+    
+    @IBOutlet private var doneButton: UIButton!
     @IBOutlet private var cancelButton: UIButton! {
         didSet {
             cancelButton.addTarget(self, action: #selector(cancelButtonDidTapped(_:)), for: .touchUpInside)
