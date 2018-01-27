@@ -42,11 +42,14 @@ class DeleteMemoViewController: UIViewController {
     }
     
     @objc private func doneButtonDidTapped(_ sender: UIButton) {
-        
         if dao.delete(data.objectID!) {
             appDelegate.memolist.remove(at: removeIdx)
         }
-        self.dismiss(animated: false, completion: nil)
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if let mainViewController = mainStoryboard.instantiateInitialViewController() {
+            UIApplication.shared.keyWindow?.rootViewController = mainViewController
+        }
     }
     
     override func viewDidLoad() {
