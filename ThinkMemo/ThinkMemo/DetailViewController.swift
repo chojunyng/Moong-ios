@@ -202,11 +202,12 @@ class DetailViewController: UIViewController {
         
         defer {
             
-            let keywordVC = UIStoryboard(name: "Keyword", bundle: nil).instantiateViewController(withIdentifier: "KerwordVC") as! KeywordVC
+            if let keywordVC = UIStoryboard(name: "Keyword", bundle: nil).instantiateViewController(withIdentifier: "KeywordVC") as? KeywordVC {
             
-            keywordVC.keywords = item.keywords!
+                keywordVC.keywords = item.keywords!
             
-            self.present(keywordVC, animated: false, completion: nil)
+                self.present(keywordVC, animated: false, completion: nil)
+            }
         }
         
     }

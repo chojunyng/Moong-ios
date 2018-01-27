@@ -29,6 +29,7 @@ class CombineWordsVC: UIViewController {
         }
     }
     
+    var keywords = [String]()
     
     
     override func viewDidLoad() {
