@@ -96,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="memoView" destination="0Yf-D6-9KG" id="LG4-0w-xgM"/>
+                        <outlet property="saveButton" destination="Lny-2Y-o3z" id="hQb-wJ-idL"/>
                         <outlet property="textCountLabel" destination="B5e-7s-xzv" id="TE1-dg-QRO"/>
                     </connections>
                 </viewController>

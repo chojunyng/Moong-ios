@@ -25,7 +25,12 @@ class MainViewController: UIViewController {
         
         self.MemoTableView.separatorColor = UIColor.clear
         
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = #imageLiteral(resourceName: "MainBackground")
+        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
         
+        MemoTableView.backgroundColor = UIColor.clear
     }
 }
 
@@ -39,14 +44,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderMemoCell") as! HeaderMemoCell
-        cell.titleLabel.text = "말랑말랑"
-        
+        cell.titleImage.image = UIImage(named: "MainTitleImage")
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell") as! MemoCell
+        cell.backgroundColor = UIColor.clear
         if (indexPath.row == 2) {
             cell.contentLabel.text = "정리된 말 정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말"
             cell.dateLabel.text = "2018.01.25"
