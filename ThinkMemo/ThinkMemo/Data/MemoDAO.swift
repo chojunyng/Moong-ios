@@ -16,6 +16,8 @@ class MemoDAO {
         return appDelegate.persistentContainer.viewContext
     }()
     
+    lazy var dao = MemoDAO()
+    
     // 저장된 메모 전체를 불러오는 메서드
     func fetch() -> [MemoData] {
         var memoList = [MemoData]()
@@ -92,6 +94,12 @@ class MemoDAO {
         // 삭제할 객체를 찾아 컨텍스트에서 삭제한다.
         let object = context.object(with: objectID)
         context.delete(object)
+        print("델맅")
+        // 서버에서 데이터를 제거한다.
+        print((object as! MemoMO).pk)
+        
+        let sync = DataSync()
+        sync.removeData(object as! MemoMO)
         
         do {
             // 삭제된 내용을 영구저장소에 반영한다.
@@ -122,7 +130,10 @@ class MemoDAO {
         // 영구 저장소에 변경사항을 반영한다.
         do {
             try context.save()
-            // 로그인 서버 데이터 업로드 처리 - 보류
+            
+            // 서버에 데이터를 업로드한다.
+            let sync = DataSync()
+            sync.uploadDatum(object)
             
         } catch let error as NSError {
             NSLog("error: %s", error.localizedDescription)

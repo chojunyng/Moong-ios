@@ -75,7 +75,6 @@ class DataSync {
     
     // 인자값으로 입력된 개별 MemoMo 객체를 서버에 업로드한다.
     func uploadDatum(_ item: MemoMO, complete: (() -> Void)? = nil) {
-        // 헤더 설정
         
         // 전송할 값 설정
         let param: Parameters = [
@@ -86,7 +85,7 @@ class DataSync {
         ]
         
         // 전송
-        let url = "http://52.79.215.229/api/board/"
+        let url = "http://13.125.76.112/api/board/"
         let upload = Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default)
         
         // 응답 및 결과 처리
@@ -111,6 +110,17 @@ class DataSync {
                 NSLog("error: %s", e.localizedDescription)
             }
         }
+    }
+    
+    func removeData(_ item: MemoMO) {
+        
+        // 전송할 값 설정
+        let pk = item.pk
+        let url = "http://13.125.76.112/api/board/\(pk)/"
+        print(pk)
+        _ = Alamofire.request(url, method: .delete, encoding: JSONEncoding.default)
+        
+        print("리무브")
     }
 }
 
