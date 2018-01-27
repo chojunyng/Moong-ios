@@ -15,6 +15,7 @@
 		30242D2F201C690000B6B633 /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D2E201C690000B6B633 /* KeywordViewController.swift */; };
 		30242D33201C8E2C00B6B633 /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D32201C8E2C00B6B633 /* KeywordCell.swift */; };
 		30242D37201CA79300B6B633 /* CombineWordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D36201CA79300B6B633 /* CombineWordsVC.swift */; };
+		30B7ED36201CBCAA00392D80 /* KeywordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B7ED35201CBCAA00392D80 /* KeywordCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		30242D2E201C690000B6B633 /* KeywordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
 		30242D32201C8E2C00B6B633 /* KeywordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
 		30242D36201CA79300B6B633 /* CombineWordsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineWordsVC.swift; sourceTree = "<group>"; };
+		30B7ED35201CBCAA00392D80 /* KeywordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeywordCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				30242D1E201C64FB00B6B633 /* ViewController.swift */,
 				30242D2E201C690000B6B633 /* KeywordViewController.swift */,
 				30242D32201C8E2C00B6B633 /* KeywordCell.swift */,
+				30B7ED35201CBCAA00392D80 /* KeywordCell.xib */,
 				30242D36201CA79300B6B633 /* CombineWordsVC.swift */,
 				30242D20201C64FB00B6B633 /* Main.storyboard */,
 				30242D23201C64FB00B6B633 /* Assets.xcassets */,
@@ -133,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30242D27201C64FB00B6B633 /* LaunchScreen.storyboard in Resources */,
+				30B7ED36201CBCAA00392D80 /* KeywordCell.xib in Resources */,
 				30242D24201C64FB00B6B633 /* Assets.xcassets in Resources */,
 				30242D22201C64FB00B6B633 /* Main.storyboard in Resources */,
 			);
@@ -287,6 +291,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AANGG4Q668;
 				INFOPLIST_FILE = ThinkMemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Unithon.ThinkMemo;
@@ -301,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AANGG4Q668;
 				INFOPLIST_FILE = ThinkMemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Unithon.ThinkMemo;

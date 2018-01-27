@@ -15,6 +15,7 @@ class KeywordViewController : UIViewController {
             keywordColvw.delegate = self
             keywordColvw.dataSource = self
             keywordColvw.allowsMultipleSelection = true
+            keywordColvw.register(UINib(nibName: "KeywordCell", bundle: nil), forCellWithReuseIdentifier: "KeywordCell")
         }
     }
     
@@ -43,21 +44,6 @@ extension KeywordViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = keywordColvw.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! KeywordCell
-        
-        
-//        cell.layer.masksToBounds = false
-//        cell.layer.shadowOffset = CGSize(width: 1, height: 1)
-//        cell.layer.shadowRadius = 1.0
-//        cell.layer.shadowColor = UIColor.gray.cgColor
-//        cell.layer.shadowOpacity = 1.0
-        
-        cell.layer.cornerRadius = 15
-        cell.layer.backgroundColor = UIColor.white.cgColor
-        cell.layer.shadowColor = UIColor.darkGray.cgColor
-        cell.layer.masksToBounds = false
-        cell.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
-        cell.layer.shadowOpacity = 0.1
-        cell.layer.shadowRadius = 15.0
         
         if selectedCells.contains(indexPath) {
             cell.isSelected = true
