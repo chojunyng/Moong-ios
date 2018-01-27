@@ -45,18 +45,6 @@ class DetailViewController: UIViewController {
         return backButton
     }()
     
-    private lazy var editButton: UIButton = {
-        let editButton = UIButton(type: .system)
-        editButton.setTitle("수정", for: .normal)
-        editButton.titleLabel?.textColor = UIColor(red: 1.0, green: 198.0/255.0, blue: 0.0, alpha: 1.0)
-        editButton.tintColor = UIColor(red: 1.0, green: 198.0/255.0, blue: 0.0, alpha: 1.0)
-        editButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 17.0)
-        editButton.addTarget(self, action: #selector(editButtonDidTapped(_:)), for: .touchUpInside)
-        editButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        return editButton
-    }()
-    
     private lazy var deleteButton: UIButton = {
         let deleteButton = UIButton(type: .system)
         deleteButton.setTitle("삭제", for: .normal)
@@ -161,15 +149,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    @objc private func editButtonDidTapped(_ sender: UIButton) {
-//        let newMemoStoryboard = UIStoryboard(name: "NewMemo", bundle: nil)
-//        if let editMemoViewController = newMemoStoryboard.instantiateViewController(withIdentifier: "EditMemoViewController") as? EditMemoViewController {
-//
-//            editMemoViewController.editText = data.content
-//            self.present(editMemoViewController, animated: true, completion: nil)
-//        }
-    }
-    
     @objc private func deleteButtonDidTapped(_ sender: UIButton) {
         if let deleteMemoViewController = self.storyboard?.instantiateViewController(withIdentifier: "DeleteMemoViewController") as? DeleteMemoViewController {
             deleteMemoViewController.data = data
@@ -254,8 +233,6 @@ class DetailViewController: UIViewController {
         self.view.addConstraints(titleLabelConstraints())
         self.view.addSubview(backButton)
         self.view.addConstraints(backButtonConstraints())
-        self.view.addSubview(editButton)
-        self.view.addConstraints(editButtonConstraints())
         self.view.addSubview(deleteButton)
         self.view.addConstraints(deleteButtonConstraints())
 
@@ -310,23 +287,6 @@ extension DetailViewController {
             toItem: self.view, attribute: .width, multiplier: 13.0/375.0, constant: 0.0)
         let heightConstraint = NSLayoutConstraint(
             item: backButton, attribute: .height, relatedBy: .equal,
-            toItem: titleLabel, attribute: .height, multiplier: 1.0, constant: 0.0)
-        
-        return [leadingConstraint, centerYConstraint, widthConstraint, heightConstraint]
-    }
-    
-    private func editButtonConstraints() -> [NSLayoutConstraint] {
-        let leadingConstraint = NSLayoutConstraint(
-            item: editButton, attribute: .leading, relatedBy: .equal,
-            toItem: self.view, attribute: .centerX, multiplier: 292.0/187.5, constant: 0.0)
-        let centerYConstraint = NSLayoutConstraint(
-            item: editButton, attribute: .centerY, relatedBy: .equal,
-            toItem: titleLabel, attribute: .centerY, multiplier: 1.0, constant: 0.0)
-        let widthConstraint = NSLayoutConstraint(
-            item: editButton, attribute: .width, relatedBy: .equal,
-            toItem: self.view, attribute: .width, multiplier: 35.0/375.0, constant: 0.0)
-        let heightConstraint = NSLayoutConstraint(
-            item: editButton, attribute: .height, relatedBy: .equal,
             toItem: titleLabel, attribute: .height, multiplier: 1.0, constant: 0.0)
         
         return [leadingConstraint, centerYConstraint, widthConstraint, heightConstraint]
