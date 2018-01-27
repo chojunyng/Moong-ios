@@ -13,7 +13,7 @@ class NewMemoViewController: UIViewController {
     // MARK: Properties
     
     // 앱 델리게이트 객체의 참조 정보를 읽어온다
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
     var subject: String!
     lazy var dao = MemoDAO()
