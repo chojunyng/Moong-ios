@@ -53,6 +53,7 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         memolist = dao.fetch()
+        MemoTableView.reloadData()
     }
 }
 
@@ -93,12 +94,19 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.isUserInteractionEnabled = true
         
         cell.contentLabel.text = memolist[indexPath.row].content
-        cell.dateLabel.text = "\(memolist[indexPath.row].regdate ?? Date())"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        if let regdate = memolist[indexPath.row].regdate {
+            let writeDate = dateFormatter.string(from: regdate)
+            cell.dateLabel.text = "\(writeDate)"
+        }
         
         if let _ = memolist[indexPath.row].result {
             cell.shadowButton.isHidden = true
             cell.shadowView.isHidden = true
+            cell.selectionStyle = .none
         } else {
+            tableView.allowsSelection = false
             cell.shadowButton.addTarget(self,
                                         action: #selector(cellDidTapped(_:)),
                                         for: .touchUpInside)
@@ -106,6 +114,16 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = memolist[indexPath.row]
+        
+        if let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            
+            detailViewController.data = data
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
