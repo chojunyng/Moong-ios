@@ -12,9 +12,19 @@ class DeleteMemoViewController: UIViewController {
     
     // MARK: Properties
 
-    var data: MemoData!
+    // 앱 델리게이트 객체의 참조 정보를 읽어온다
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    @IBOutlet private var doneButton: UIButton!
+    var data = MemoData()
+    var removeIdx = 0
+    
+    lazy var dao = MemoDAO()
+    
+    @IBOutlet private var doneButton: UIButton! {
+        didSet {
+            doneButton.addTarget(self, action: #selector(doneButtonDidTapped(_:)), for: .touchUpInside)
+        }
+    }
     @IBOutlet private var cancelButton: UIButton! {
         didSet {
             cancelButton.addTarget(self, action: #selector(cancelButtonDidTapped(_:)), for: .touchUpInside)
@@ -31,10 +41,19 @@ class DeleteMemoViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @objc private func doneButtonDidTapped(_ sender: UIButton) {
+        
+        if dao.delete(data.objectID!) {
+            appDelegate.memolist.remove(at: removeIdx)
+        }
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.clear.withAlphaComponent(0.5)
         self.view.isOpaque = false
+        
     }
 }

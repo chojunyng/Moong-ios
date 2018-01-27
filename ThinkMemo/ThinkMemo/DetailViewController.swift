@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
  
     lazy var dao = MemoDAO()
     var data = MemoData()
+    var removeIdx = 0
     
     // 앱 델리게이트 객체의 참조 정보를 읽어온다
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -150,6 +151,8 @@ class DetailViewController: UIViewController {
     
     @objc private func deleteButtonDidTapped(_ sender: UIButton) {
         if let deleteMemoViewController = self.storyboard?.instantiateViewController(withIdentifier: "DeleteMemoViewController") as? DeleteMemoViewController {
+            deleteMemoViewController.data = data
+            deleteMemoViewController.removeIdx = removeIdx
             
             deleteMemoViewController.modalPresentationStyle = .overCurrentContext
             self.present(deleteMemoViewController, animated: false, completion: nil)
@@ -169,7 +172,7 @@ class DetailViewController: UIViewController {
             pk = key
         }
         
-        let url = "http://52.79.215.229/api/board/analyze/\(pk)/pretty"
+        let url = "http://13.125.76.112/api/board/analyze/\(pk)/pretty"
         let get = Alamofire.request(url, method: .get, encoding: JSONEncoding.default)
         
         get.responseJSON { res in
@@ -191,9 +194,21 @@ class DetailViewController: UIViewController {
                     keyword.append(c)
                 }
             }
+            
             item.keywords = strArray
             self.dao.update(data: item)
+            
         }
+        
+        defer {
+            
+            let keywordVC = UIStoryboard(name: "Keyword", bundle: nil).instantiateViewController(withIdentifier: "KerwordVC") as! KeywordVC
+            
+            keywordVC.keywords = item.keywords!
+            
+            self.present(keywordVC, animated: false, completion: nil)
+        }
+        
     }
 
     // MARK: Life Cycle

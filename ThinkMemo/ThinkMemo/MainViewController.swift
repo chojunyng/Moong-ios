@@ -46,6 +46,7 @@ class MainViewController: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
         
         MemoTableView.backgroundColor = UIColor.clear
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +66,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         
         if let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
             
+            detailViewController.removeIdx = sender.tag
             detailViewController.data = data
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }

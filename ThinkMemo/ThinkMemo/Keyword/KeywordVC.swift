@@ -10,6 +10,11 @@ import UIKit
 
 class KeywordVC : UIViewController {
     
+    // 앱 델리게이트 객체의 참조 정보를 읽어온다
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var keywords = [String]()
+    
     @IBOutlet var keywordColvw: UICollectionView! {
         didSet {
             keywordColvw.delegate = self
@@ -21,7 +26,6 @@ class KeywordVC : UIViewController {
     let reuseIdentifier = "KeywordCell"
     let MaximumNumberOfTaps = 3
     var selectedCells = NSMutableArray()
-    var keywords = String()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -30,6 +34,17 @@ class KeywordVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         keywordColvw.allowsMultipleSelection = true
+        
+        /*
+        if keywords.isEmpty {
+            print(keywords)
+            if let data = appDelegate.memolist.first {
+                print(data)
+                keywords = data.keywords
+            }
+        }
+        */
+        print(keywords)
     }
 
 }
