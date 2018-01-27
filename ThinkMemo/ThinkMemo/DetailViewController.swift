@@ -12,7 +12,7 @@ import Alamofire
 class DetailViewController: UIViewController {
     
     // MARK: Properties
-    
+ 
     lazy var dao = MemoDAO()
     var data = MemoData()
     
