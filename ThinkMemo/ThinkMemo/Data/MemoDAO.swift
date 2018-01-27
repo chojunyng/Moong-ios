@@ -77,7 +77,10 @@ class MemoDAO {
         // 영구 저장소에 변경사항을 반영한다.
         do {
             try context.save()
-            // 로그인 서버 데이터 업로드 처리 - 보류
+            
+            // 서버에 데이터를 업로드한다.
+            let sync = DataSync()
+            sync.uploadDatum(object)
             
         } catch let error as NSError {
             NSLog("error: %s", error.localizedDescription)

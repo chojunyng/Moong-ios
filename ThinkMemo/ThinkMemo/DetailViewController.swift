@@ -128,7 +128,7 @@ class DetailViewController: UIViewController {
         
         self.view.addSubview(deleteButton)
         self.view.addConstraints(deleteButtonConstraints())
-        
+
 //        self.view.addSubview(resultBaseView)
 //        self.view.addConstraints(resultBaseViewConstraints())
 //        self.view.addSubview(resultTextView)

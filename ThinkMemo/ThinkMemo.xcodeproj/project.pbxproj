@@ -20,9 +20,11 @@
 		722F9E41201C7EEC003F4757 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E40201C7EEC003F4757 /* DetailViewController.swift */; };
 		722F9E43201CB686003F4757 /* DeleteMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */; };
 		83A24D8FC4B23156EFC8FDE0 /* Pods_ThinkMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13DFBCF5023F1A81BC8A246 /* Pods_ThinkMemo.framework */; };
+
 		CB20DF8C201CEDCE00262002 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB20DF8B201CEDCE00262002 /* MainViewController.swift */; };
 		CB20DF90201CEE3000262002 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB20DF8F201CEE3000262002 /* MemoCell.swift */; };
 		CB20DF92201CEE7000262002 /* HeaderMemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB20DF91201CEE7000262002 /* HeaderMemoCell.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +45,11 @@
 		722F9E40201C7EEC003F4757 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMemoViewController.swift; sourceTree = "<group>"; };
 		C13DFBCF5023F1A81BC8A246 /* Pods_ThinkMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThinkMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+
 		CB20DF8B201CEDCE00262002 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CB20DF8F201CEE3000262002 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		CB20DF91201CEE7000262002 /* HeaderMemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMemoCell.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +264,7 @@
 				108F0ECB201CD14A00050712 /* ThinkMemo.xcdatamodeld in Sources */,
 				CB20DF90201CEE3000262002 /* MemoCell.swift in Sources */,
 				108F0EC0201CD08500050712 /* DataSync.swift in Sources */,
+
 				722F9E3F201C6E9F003F4757 /* NewMemoViewController.swift in Sources */,
 				108F0EC1201CD08500050712 /* MomoData.swift in Sources */,
 				108F0EBF201CD08500050712 /* MemoDAO.swift in Sources */,
@@ -405,7 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 836DYQVDP8;
+				DEVELOPMENT_TEAM = BVVM4ZGCE2;
 				INFOPLIST_FILE = ThinkMemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Unithon.ThinkMemo;
@@ -421,7 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 836DYQVDP8;
+				DEVELOPMENT_TEAM = BVVM4ZGCE2;
 				INFOPLIST_FILE = ThinkMemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Unithon.ThinkMemo;
