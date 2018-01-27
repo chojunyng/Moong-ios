@@ -17,6 +17,9 @@ class DataSync {
         return appDelegate.persistentContainer.viewContext
     }()
     
+    // 앱 델리게이트 객체의 참조 정보를 읽어온다
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     // 서버에 백업된 데이터 내려받기
     func downloadBackupData() {
         // 최초 한 번만 다운로드 받도록 체크
@@ -75,14 +78,15 @@ class DataSync {
         // 헤더 설정
         
         // 전송할 값 설정
-        var param: Parameters = [
+        let param: Parameters = [
+            "user": appDelegate.userId,
             "title": item.title!,
             "content": item.content!,
-            "create_date": self.dateToString(item.regdate!)
+            //"create_date": self.dateToString(item.regdate!)
         ]
         
         // 전송
-        let url = ""
+        let url = "http://52.79.215.229/api/board/"
         let upload = Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default)
         
         // 응답 및 결과 처리
@@ -92,24 +96,21 @@ class DataSync {
                 return
             }
             
-            let resultCode = jsonObject["result_code"] as! Int
-            if resultCode == 0 {
-                print("[\(item.title!)]이(가) 등록되었습니다.")
-                
-                // 코어 데이터에 반영
-                do {
-                    item.sync = true
-                    try self.context.save()
-                } catch let e as NSError {
-                    self.context.rollback()
-                    NSLog("error: %s", e.localizedDescription)
-                }
-            } else {
-                print(jsonObject["error_msg"] as! String)
+            guard let pk = jsonObject["pk"] as? Int32 else {
+                print("잘못된 응답입니다.")
+                return
             }
             
-            // 완료 처리 클로저 실행
-            complete?()
+            item.pk = pk
+            
+            // 코어 데이터에 반영
+            do {
+                item.sync = true
+                try self.context.save()
+            } catch let e as NSError {
+                self.context.rollback()
+                NSLog("error: %s", e.localizedDescription)
+            }
         }
     }
 }
