@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         sleep(1)
         
-        let newMemoStoryboard = UIStoryboard(name: "Keyword", bundle: nil)
+        //let newMemoStoryboard = UIStoryboard(name: "Keyword", bundle: nil)
 
-        self.window?.rootViewController = newMemoStoryboard.instantiateInitialViewController()
+        //self.window?.rootViewController = newMemoStoryboard.instantiateInitialViewController()
 
         
         return true

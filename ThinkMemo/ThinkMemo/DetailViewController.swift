@@ -165,9 +165,21 @@ class DetailViewController: UIViewController {
                     keyword.append(c)
                 }
             }
+            
             item.keywords = strArray
             self.dao.update(data: item)
+            
         }
+        
+        defer {
+            
+            let keywordVC = UIStoryboard(name: "Keyword", bundle: nil).instantiateViewController(withIdentifier: "KerwordVC") as! KeywordVC
+            
+            keywordVC.keywords = item.keywords!
+            
+            self.present(keywordVC, animated: false, completion: nil)
+        }
+        
     }
 
     // MARK: Life Cycle
