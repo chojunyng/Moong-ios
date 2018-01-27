@@ -10,5 +10,4 @@ import UIKit
 
 class KeywordCell: UICollectionViewCell {
     @IBOutlet var title: UILabel!
-    @IBOutlet var checkImage: UIImageView!
 }
