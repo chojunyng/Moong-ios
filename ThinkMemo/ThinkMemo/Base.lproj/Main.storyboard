@@ -13,13 +13,14 @@
     <customFonts key="customFonts">
         <array key="AppleSDGothicNeo.ttc">
             <string>AppleSDGothicNeo-Medium</string>
+            <string>AppleSDGothicNeo-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
         <!--Detail View Controller-->
         <scene sceneID="gwx-Dh-v3i">
             <objects>
-                <viewController id="bT1-Sd-sbK" customClass="DetailViewController" customModule="ThinkMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="bT1-Sd-sbK" customClass="DetailViewController" customModule="ThinkMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BTS-mG-6Y5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,13 +200,15 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="319" height="128"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13s-Qx-qI1">
-                                                                    <rect key="frame" x="58" y="50" width="203" height="26"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGC-Zq-dca">
+                                                                    <rect key="frame" x="58" y="48" width="203" height="30"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <state key="normal" title="생각 정리가 필요해요 !">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
@@ -229,7 +232,7 @@
                                             <outlet property="cardView" destination="x3g-eO-dxE" id="MEQ-GL-20F"/>
                                             <outlet property="contentLabel" destination="v6z-4z-dF9" id="7fX-sk-nSR"/>
                                             <outlet property="dateLabel" destination="Gx3-9d-CjF" id="hQq-gO-mok"/>
-                                            <outlet property="shadowLabel" destination="13s-Qx-qI1" id="YEp-O5-kgM"/>
+                                            <outlet property="shadowButton" destination="gGC-Zq-dca" id="0HG-B6-iWr"/>
                                             <outlet property="shadowView" destination="Ktf-Fr-NoB" id="zH6-bm-SDt"/>
                                         </connections>
                                     </tableViewCell>
@@ -239,6 +242,9 @@
                                 <rect key="frame" x="160" y="572" width="58" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="newbutton"/>
+                                <connections>
+                                    <action selector="memoCreateButtonDidTapped:" destination="vvJ-5J-TLq" eventType="touchUpInside" id="zQL-De-hYD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -257,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkI-cB-TUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="134"/>
+            <point key="canvasLocation" x="88.799999999999997" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o6S-HS-wYr">

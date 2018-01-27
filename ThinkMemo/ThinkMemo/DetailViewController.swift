@@ -12,6 +12,8 @@ class DetailViewController: UIViewController {
     
     // MARK: Properties
     
+    var data = MemoData()
+    
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = ""

@@ -54,7 +54,8 @@ class NewMemoViewController: UIViewController {
         // 코어 데이터에 메모 데이터를 추가한다.
         dao.insert(data)
         
-        print("저장완료")
+        print(data.title)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: Life Cycle

@@ -10,9 +10,24 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: Properties
+    
+    var memolist = (UIApplication.shared.delegate as! AppDelegate).memolist
+    let dao = MemoDAO()
+    
     @IBOutlet weak var MemoTableView: UITableView!
     
+    // MARK: Methods
     
+    @IBAction func memoCreateButtonDidTapped(_ sender: UIButton) {
+        let newMemoStoryboard = UIStoryboard(name: "NewMemo", bundle: nil)
+        if let newMemoViewController = newMemoStoryboard.instantiateInitialViewController() as? NewMemoViewController {
+            
+            self.present(newMemoViewController, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         
@@ -32,14 +47,36 @@ class MainViewController: UIViewController {
         
         MemoTableView.backgroundColor = UIColor.clear
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        memolist = dao.fetch()
+    }
 }
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: Custom Methods
+    
+    @objc private func cellDidTapped(_ sender: UIButton) {
+        let data = memolist[sender.tag]
+        
+        if let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            
+            detailViewController.data = data
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    }
+    
+    // MARK: Delegate
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return memolist.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -51,41 +88,29 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell") as! MemoCell
         cell.backgroundColor = UIColor.clear
-        if (indexPath.row == 2) {
-            cell.contentLabel.text = "정리된 말 정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말"
-            cell.dateLabel.text = "2018.01.25"
-            cell.shadowLabel.text = "생각 정리가 필요해요 !"
-            let g = UITapGestureRecognizer()
-            cell.cardView.addGestureRecognizer(g)
-        }
-        else {
-            cell.contentLabel.text = "정리된 말 정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말"
-            cell.dateLabel.text = "2018.01.25"
+        cell.isUserInteractionEnabled = true
+        
+        cell.contentLabel.text = memolist[indexPath.row].content
+        cell.dateLabel.text = "\(memolist[indexPath.row].regdate ?? Date())"
+        
+        if let _ = memolist[indexPath.row].result {
+            cell.shadowButton.isHidden = true
             cell.shadowView.isHidden = true
-            cell.shadowLabel.isHidden = true
+        } else {
+            cell.shadowButton.addTarget(self,
+                                        action: #selector(cellDidTapped(_:)),
+                                        for: .touchUpInside)
+            cell.shadowButton.tag = indexPath.row
         }
         
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 147.0
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60.0
     }
-    
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-

@@ -15,10 +15,8 @@ class MemoCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var shadowView: UIView!
-    @IBOutlet var shadowLabel: UILabel!
-    
-    
-    
+    @IBOutlet var shadowButton: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
