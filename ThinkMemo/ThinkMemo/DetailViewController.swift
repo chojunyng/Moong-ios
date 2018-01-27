@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import Alamofire
 
 class DetailViewController: UIViewController {
     
     // MARK: Properties
+    
+    lazy var dao = MemoDAO()
+    var data = MemoData()
+    
+    
+    // 앱 델리게이트 객체의 참조 정보를 읽어온다
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -83,7 +91,8 @@ class DetailViewController: UIViewController {
     
     private lazy var contentTextView: UITextView = {
         let contentTextView = UITextView()
-        contentTextView.text = "안녕하세요. 글을 쓰는 중입니다. 안녕하세요. 글을 쓰는 중입니다. 안녕하세요. 글을 쓰는 중입니다.안녕하세요. 글을 쓰는 중입니다.안녕하세요. 글을 쓰는 중입니다.안녕하세요. 글을 쓰는 중입니다.안녕하세요. 글을 쓰는 중입니다.안녕하세요. 글을 쓰는 중입니다.안녕하세요. 글을 쓰는 중입니다.안녕하세요. 글을 쓰는 중입니다.안녕하세요."
+        
+        contentTextView.text = data.content!
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 10.0
         let attributes = [NSAttributedStringKey.paragraphStyle: style,
@@ -106,6 +115,8 @@ class DetailViewController: UIViewController {
         keywordButton.backgroundColor = UIColor(red: 1.0, green: 205.0/255.0, blue: 0.0, alpha: 1.0)
         keywordButton.translatesAutoresizingMaskIntoConstraints = false
         
+        keywordButton.addTarget(self, action: #selector(keywordButtonDidTapped(_:)), for: .touchUpInside)
+        
         return keywordButton
     }()
     
@@ -118,11 +129,62 @@ class DetailViewController: UIViewController {
             self.present(deleteMemoViewController, animated: false, completion: nil)
         }
     }
+    
+    @objc private func keywordButtonDidTapped(_ sender: UIButton) {
+        
+        requestKeywords(data)
+    }
+    
+    func requestKeywords(_ item: MemoData) {
+        
+        var pk: Int32 = 0
+        
+        if let key = item.pk {
+            pk = key
+        }
+        
+        let url = "http://52.79.215.229/api/board/analyze/\(pk)/pretty"
+        let get = Alamofire.request(url, method: .get, encoding: JSONEncoding.default)
+        
+        get.responseJSON { res in
+            guard let jsonObject = res.result.value as? NSDictionary else {
+                print("잘못된 응답")
+                return
+            }
+            let keywords = jsonObject["result"] as! String
+            
+            var keyword: String = ""
+            var strArray = [String]()
+            
+            for c in keywords {
+                if c == "," || c == " " {
+                    strArray.append(keyword)
+                    keyword.removeAll()
+                    
+                } else {
+                    keyword.append(c)
+                }
+            }
+            item.keywords = strArray
+            self.dao.update(data: item)
+        }
+    }
 
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 데이터 처리
+        // 코어 데이터에 저장된 데이터를 가져온다.
+        appDelegate.memolist = dao.fetch()
+        
+        // data 초기화
+        if data.title == nil {
+            if let data = appDelegate.memolist.first {
+                self.data = data
+            }
+        }
         
         self.navigationItem.titleView = titleLabel
         

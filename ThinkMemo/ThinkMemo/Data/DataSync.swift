@@ -102,7 +102,6 @@ class DataSync {
             }
             
             item.pk = pk
-            
             // 코어 데이터에 반영
             do {
                 item.sync = true
