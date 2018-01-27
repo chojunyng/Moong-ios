@@ -12,7 +12,6 @@
 		108F0EC1201CD08500050712 /* MomoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F0EBE201CD08500050712 /* MomoData.swift */; };
 		108F0ECB201CD14A00050712 /* ThinkMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 108F0EC9201CD14A00050712 /* ThinkMemo.xcdatamodeld */; };
 		30242D1D201C64FB00B6B633 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D1C201C64FB00B6B633 /* AppDelegate.swift */; };
-		30242D1F201C64FB00B6B633 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D1E201C64FB00B6B633 /* ViewController.swift */; };
 		30242D22201C64FB00B6B633 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30242D20201C64FB00B6B633 /* Main.storyboard */; };
 		30242D24201C64FB00B6B633 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30242D23201C64FB00B6B633 /* Assets.xcassets */; };
 		30242D27201C64FB00B6B633 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30242D25201C64FB00B6B633 /* LaunchScreen.storyboard */; };
@@ -21,6 +20,11 @@
 		722F9E41201C7EEC003F4757 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E40201C7EEC003F4757 /* DetailViewController.swift */; };
 		722F9E43201CB686003F4757 /* DeleteMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */; };
 		83A24D8FC4B23156EFC8FDE0 /* Pods_ThinkMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13DFBCF5023F1A81BC8A246 /* Pods_ThinkMemo.framework */; };
+
+		CB20DF8C201CEDCE00262002 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB20DF8B201CEDCE00262002 /* MainViewController.swift */; };
+		CB20DF90201CEE3000262002 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB20DF8F201CEE3000262002 /* MemoCell.swift */; };
+		CB20DF92201CEE7000262002 /* HeaderMemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB20DF91201CEE7000262002 /* HeaderMemoCell.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,6 @@
 		22D16A882DC4DEA3BC33D763 /* Pods-ThinkMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkMemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkMemo/Pods-ThinkMemo.release.xcconfig"; sourceTree = "<group>"; };
 		30242D19201C64FB00B6B633 /* ThinkMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30242D1C201C64FB00B6B633 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30242D1E201C64FB00B6B633 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		30242D21201C64FB00B6B633 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30242D23201C64FB00B6B633 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30242D26201C64FB00B6B633 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +45,11 @@
 		722F9E40201C7EEC003F4757 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMemoViewController.swift; sourceTree = "<group>"; };
 		C13DFBCF5023F1A81BC8A246 /* Pods_ThinkMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThinkMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+
+		CB20DF8B201CEDCE00262002 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CB20DF8F201CEE3000262002 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		CB20DF91201CEE7000262002 /* HeaderMemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMemoCell.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +95,11 @@
 		30242D1B201C64FB00B6B633 /* ThinkMemo */ = {
 			isa = PBXGroup;
 			children = (
+				CB20DF8B201CEDCE00262002 /* MainViewController.swift */,
+				CB20DF8F201CEE3000262002 /* MemoCell.swift */,
+				CB20DF91201CEE7000262002 /* HeaderMemoCell.swift */,
 				108F0EB5201CD05B00050712 /* Data */,
 				30242D1C201C64FB00B6B633 /* AppDelegate.swift */,
-				30242D1E201C64FB00B6B633 /* ViewController.swift */,
 				722F9E40201C7EEC003F4757 /* DetailViewController.swift */,
 				722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */,
 				722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */,
@@ -250,13 +260,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB20DF92201CEE7000262002 /* HeaderMemoCell.swift in Sources */,
 				108F0ECB201CD14A00050712 /* ThinkMemo.xcdatamodeld in Sources */,
+				CB20DF90201CEE3000262002 /* MemoCell.swift in Sources */,
 				108F0EC0201CD08500050712 /* DataSync.swift in Sources */,
-				30242D1F201C64FB00B6B633 /* ViewController.swift in Sources */,
+
 				722F9E3F201C6E9F003F4757 /* NewMemoViewController.swift in Sources */,
 				108F0EC1201CD08500050712 /* MomoData.swift in Sources */,
 				108F0EBF201CD08500050712 /* MemoDAO.swift in Sources */,
 				30242D1D201C64FB00B6B633 /* AppDelegate.swift in Sources */,
+				CB20DF8C201CEDCE00262002 /* MainViewController.swift in Sources */,
 				722F9E43201CB686003F4757 /* DeleteMemoViewController.swift in Sources */,
 				722F9E41201C7EEC003F4757 /* DetailViewController.swift in Sources */,
 			);
