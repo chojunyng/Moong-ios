@@ -9,10 +9,23 @@
 import UIKit
 
 class KeywordCell: UICollectionViewCell {
+    
     @IBOutlet var title: UILabel!
     
-    var is_selected : Bool = false
-    
+    var isCellSelected = false {
+        didSet {
+            if isCellSelected {
+                self.isSelected = true
+                self.backgroundColor = UIColor.init(hex: 0xffcd00)
+                self.title.textColor = UIColor.white
+            }
+            else{
+                self.isSelected = false
+                self.backgroundColor = UIColor.white
+                self.title.textColor = UIColor.init(hex: 0x4A4A4A)
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
