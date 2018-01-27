@@ -94,10 +94,8 @@ class MemoDAO {
         // 삭제할 객체를 찾아 컨텍스트에서 삭제한다.
         let object = context.object(with: objectID)
         context.delete(object)
-        print("델맅")
-        // 서버에서 데이터를 제거한다.
-        print((object as! MemoMO).pk)
         
+        // 서버에서 데이터를 제거한다.
         let sync = DataSync()
         sync.removeData(object as! MemoMO)
         
