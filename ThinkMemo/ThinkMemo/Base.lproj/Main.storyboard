@@ -6,9 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -40,5 +46,109 @@
             </objects>
             <point key="canvasLocation" x="1236" y="136.28185907046478"/>
         </scene>
+        <!--Delete Memo View Controller-->
+        <scene sceneID="9vB-Jy-29S">
+            <objects>
+                <viewController storyboardIdentifier="DeleteMemoViewController" id="QDD-UE-KEP" customClass="DeleteMemoViewController" customModule="ThinkMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kI5-xr-zhc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWj-UW-QK2">
+                                <rect key="frame" x="69.5" y="196" width="235" height="242"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group" translatesAutoresizingMaskIntoConstraints="NO" id="Kdb-6W-f4a">
+                                        <rect key="frame" x="93.5" y="44" width="48" height="53"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="삭제하시겠어요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfo-Xe-Opx">
+                                        <rect key="frame" x="45.5" y="112" width="145" height="19"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <color key="textColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUl-oA-VPu">
+                                        <rect key="frame" x="53.5" y="152" width="128" height="29"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
+                                        <color key="tintColor" red="0.28235294119999998" green="0.30980392159999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="네">
+                                            <color key="titleColor" red="0.28235294119999998" green="0.30980392159999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjY-1o-K8q">
+                                        <rect key="frame" x="53.5" y="198" width="128" height="29"/>
+                                        <color key="backgroundColor" red="1" green="0.80392156862745101" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="아니오">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="pjY-1o-K8q" firstAttribute="top" secondItem="XWj-UW-QK2" secondAttribute="centerY" multiplier="198/121" id="20s-t6-lvR"/>
+                                    <constraint firstItem="VUl-oA-VPu" firstAttribute="top" secondItem="XWj-UW-QK2" secondAttribute="centerY" multiplier="152/121" id="47C-ph-o1G"/>
+                                    <constraint firstItem="VUl-oA-VPu" firstAttribute="width" secondItem="XWj-UW-QK2" secondAttribute="width" multiplier="133/245" id="80R-gx-NKg"/>
+                                    <constraint firstItem="VUl-oA-VPu" firstAttribute="height" secondItem="XWj-UW-QK2" secondAttribute="height" multiplier="29/242" id="A8r-di-Dru"/>
+                                    <constraint firstItem="pjY-1o-K8q" firstAttribute="height" secondItem="VUl-oA-VPu" secondAttribute="height" id="Cul-Hk-a3Q"/>
+                                    <constraint firstItem="Xfo-Xe-Opx" firstAttribute="height" secondItem="XWj-UW-QK2" secondAttribute="height" multiplier="19/242" id="I7p-Uy-p2q"/>
+                                    <constraint firstItem="Xfo-Xe-Opx" firstAttribute="width" secondItem="XWj-UW-QK2" secondAttribute="width" multiplier="145/235" id="IRs-S8-uPf"/>
+                                    <constraint firstItem="Kdb-6W-f4a" firstAttribute="height" secondItem="XWj-UW-QK2" secondAttribute="height" multiplier="53/242" id="ImA-ax-82R"/>
+                                    <constraint firstItem="Kdb-6W-f4a" firstAttribute="top" secondItem="XWj-UW-QK2" secondAttribute="centerY" multiplier="44/121" id="Kp2-lV-jqZ"/>
+                                    <constraint firstItem="VUl-oA-VPu" firstAttribute="centerX" secondItem="XWj-UW-QK2" secondAttribute="centerX" id="R86-aT-pMo"/>
+                                    <constraint firstItem="Kdb-6W-f4a" firstAttribute="width" secondItem="XWj-UW-QK2" secondAttribute="width" multiplier="48/235" id="RFX-zu-XcF"/>
+                                    <constraint firstItem="Xfo-Xe-Opx" firstAttribute="centerX" secondItem="XWj-UW-QK2" secondAttribute="centerX" id="jUP-QQ-jdl"/>
+                                    <constraint firstItem="Xfo-Xe-Opx" firstAttribute="top" secondItem="XWj-UW-QK2" secondAttribute="centerY" multiplier="112/121" id="rNg-bC-hxZ"/>
+                                    <constraint firstItem="pjY-1o-K8q" firstAttribute="centerX" secondItem="XWj-UW-QK2" secondAttribute="centerX" id="sBu-Qf-cpy"/>
+                                    <constraint firstItem="Kdb-6W-f4a" firstAttribute="centerX" secondItem="XWj-UW-QK2" secondAttribute="centerX" id="ty8-pP-I5R"/>
+                                    <constraint firstItem="pjY-1o-K8q" firstAttribute="width" secondItem="VUl-oA-VPu" secondAttribute="width" id="zRa-cW-uRe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="XWj-UW-QK2" firstAttribute="centerY" secondItem="GcO-4p-vG4" secondAttribute="centerY" multiplier="308/333.5" id="7Ws-VG-PT5"/>
+                            <constraint firstItem="XWj-UW-QK2" firstAttribute="width" secondItem="kI5-xr-zhc" secondAttribute="width" multiplier="235/375" id="cJ9-d4-Cdy"/>
+                            <constraint firstItem="XWj-UW-QK2" firstAttribute="height" secondItem="kI5-xr-zhc" secondAttribute="height" multiplier="242/667" id="lbI-Oy-5dk"/>
+                            <constraint firstItem="XWj-UW-QK2" firstAttribute="centerX" secondItem="GcO-4p-vG4" secondAttribute="centerX" id="yit-Ng-Tdx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GcO-4p-vG4"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="EPw-Zy-XQt" appends="YES" id="BzP-Gy-bmh"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="pjY-1o-K8q" id="Zqu-GR-vLW"/>
+                        <outlet property="doneButton" destination="VUl-oA-VPu" id="Efh-cN-lV6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c0v-s2-qEm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="EPw-Zy-XQt">
+                    <connections>
+                        <action selector="backgroundDidTapped:" destination="QDD-UE-KEP" id="D81-j6-7hs"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2044" y="135.38230884557723"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="group" width="48" height="53"/>
+    </resources>
 </document>

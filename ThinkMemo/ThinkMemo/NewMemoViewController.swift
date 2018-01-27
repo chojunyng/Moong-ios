@@ -12,13 +12,14 @@ class NewMemoViewController: UIViewController {
 
     // MARK: Properties
     
-    @IBOutlet var memoView: UITextView! {
+    @IBOutlet private var textCountLabel: UILabel!
+    @IBOutlet private var memoView: UITextView! {
         didSet {
             memoView.delegate = self
             
             let style = NSMutableParagraphStyle()
-            style.lineSpacing = 10
-            let attributes = [NSAttributedStringKey.paragraphStyle : style]
+            style.lineSpacing = 10.0
+            let attributes = [NSAttributedStringKey.paragraphStyle: style]
             memoView.attributedText = NSAttributedString(string: memoView.text,
                                                          attributes: attributes)
         }
@@ -26,15 +27,15 @@ class NewMemoViewController: UIViewController {
     
     // MARK: Methods
     
-    @IBAction func backgroundDidTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction private func backgroundDidTapped(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
     
-    @IBAction func cancelButtonDidTapped(_ sender: UIButton) {
-        
+    @IBAction private func cancelButtonDidTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveButtonDidTapped(_ sender: UIButton) {
+    @IBAction private func saveButtonDidTapped(_ sender: UIButton) {
         
     }
     
@@ -58,8 +59,15 @@ extension NewMemoViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        let replacementCount = textView.text.count + text.count
-        if replacementCount > 400 { return false }
+        let replaceCount = textView.text.count + text.count - range.length
+        
+        if replaceCount < 400 {
+            textCountLabel.text = "(\(replaceCount)/400)자"
+        } else {
+            textCountLabel.text = "(400/400)자"
+        }
+        
+        if replaceCount > 400 { return false }
         else { return true }
     }
 }

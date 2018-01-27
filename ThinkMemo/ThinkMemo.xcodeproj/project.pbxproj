@@ -15,6 +15,7 @@
 		722F9E37201C6BA0003F4757 /* NewMemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722F9E36201C6BA0003F4757 /* NewMemo.storyboard */; };
 		722F9E3F201C6E9F003F4757 /* NewMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */; };
 		722F9E41201C7EEC003F4757 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E40201C7EEC003F4757 /* DetailViewController.swift */; };
+		722F9E43201CB686003F4757 /* DeleteMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		722F9E36201C6BA0003F4757 /* NewMemo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewMemo.storyboard; sourceTree = "<group>"; };
 		722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoViewController.swift; sourceTree = "<group>"; };
 		722F9E40201C7EEC003F4757 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				30242D1C201C64FB00B6B633 /* AppDelegate.swift */,
 				30242D1E201C64FB00B6B633 /* ViewController.swift */,
 				722F9E40201C7EEC003F4757 /* DetailViewController.swift */,
+				722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */,
 				722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */,
 				30242D20201C64FB00B6B633 /* Main.storyboard */,
 				722F9E36201C6BA0003F4757 /* NewMemo.storyboard */,
@@ -149,6 +152,7 @@
 				30242D1F201C64FB00B6B633 /* ViewController.swift in Sources */,
 				722F9E3F201C6E9F003F4757 /* NewMemoViewController.swift in Sources */,
 				30242D1D201C64FB00B6B633 /* AppDelegate.swift in Sources */,
+				722F9E43201CB686003F4757 /* DeleteMemoViewController.swift in Sources */,
 				722F9E41201C7EEC003F4757 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

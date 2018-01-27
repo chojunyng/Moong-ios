@@ -51,6 +51,12 @@
                                     <action selector="saveButtonDidTapped:" destination="2gc-DZ-LVz" eventType="touchUpInside" id="BKQ-EJ-BxT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/400)자" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5e-7s-xzv">
+                                <rect key="frame" x="249" y="71.5" width="90" height="14.5"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yf-D6-9KG">
                                 <rect key="frame" x="36" y="94.5" width="303" height="350"/>
                                 <color key="tintColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,17 +69,21 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0Yf-D6-9KG" firstAttribute="centerX" secondItem="KKD-gE-uov" secondAttribute="centerX" id="6zF-bJ-Pip"/>
+                            <constraint firstItem="B5e-7s-xzv" firstAttribute="width" secondItem="KKD-gE-uov" secondAttribute="width" multiplier="90/375" id="7Rj-qc-wLx"/>
                             <constraint firstItem="IxQ-uv-mpa" firstAttribute="leading" secondItem="KKD-gE-uov" secondAttribute="centerX" multiplier="14/187.5" id="971-bO-FUk"/>
                             <constraint firstItem="0Yf-D6-9KG" firstAttribute="width" secondItem="KKD-gE-uov" secondAttribute="width" multiplier="303/375" id="ATs-VS-Mux"/>
                             <constraint firstItem="0Yf-D6-9KG" firstAttribute="top" secondItem="KKD-gE-uov" secondAttribute="centerY" multiplier="89/323.5" id="NMs-hP-7Xf"/>
                             <constraint firstItem="IxQ-uv-mpa" firstAttribute="height" secondItem="KKD-gE-uov" secondAttribute="height" multiplier="18/667" id="VVA-GU-pch"/>
                             <constraint firstItem="kAr-Zq-2uE" firstAttribute="centerX" secondItem="KKD-gE-uov" secondAttribute="centerX" id="Vvl-Pg-By3"/>
+                            <constraint firstItem="B5e-7s-xzv" firstAttribute="height" secondItem="KKD-gE-uov" secondAttribute="height" multiplier="15/667" id="ZMv-hO-eWF"/>
                             <constraint firstItem="IxQ-uv-mpa" firstAttribute="centerY" secondItem="kAr-Zq-2uE" secondAttribute="centerY" id="bID-44-tk2"/>
                             <constraint firstItem="0Yf-D6-9KG" firstAttribute="height" secondItem="KKD-gE-uov" secondAttribute="height" multiplier="350/647" id="fsh-QM-5HY"/>
+                            <constraint firstItem="0Yf-D6-9KG" firstAttribute="top" secondItem="B5e-7s-xzv" secondAttribute="bottom" constant="9" id="hku-ps-G64"/>
                             <constraint firstItem="kAr-Zq-2uE" firstAttribute="width" secondItem="KKD-gE-uov" secondAttribute="width" multiplier="50/375" id="ict-Q3-xlT"/>
                             <constraint firstItem="IxQ-uv-mpa" firstAttribute="width" secondItem="KKD-gE-uov" secondAttribute="width" multiplier="18/375" id="kVK-Ab-inr"/>
                             <constraint firstItem="Lny-2Y-o3z" firstAttribute="height" secondItem="kAr-Zq-2uE" secondAttribute="height" id="khf-XJ-LJh"/>
                             <constraint firstItem="kAr-Zq-2uE" firstAttribute="height" secondItem="KKD-gE-uov" secondAttribute="height" multiplier="25/647" id="n72-2V-bBS"/>
+                            <constraint firstItem="B5e-7s-xzv" firstAttribute="leading" secondItem="KKD-gE-uov" secondAttribute="centerX" multiplier="249/187.5" id="ozG-8p-m8d"/>
                             <constraint firstItem="Lny-2Y-o3z" firstAttribute="leading" secondItem="KKD-gE-uov" secondAttribute="centerX" multiplier="332/187.5" id="r5J-2T-7Uz"/>
                             <constraint firstItem="Lny-2Y-o3z" firstAttribute="centerY" secondItem="kAr-Zq-2uE" secondAttribute="centerY" id="r5U-JC-q6B"/>
                             <constraint firstItem="kAr-Zq-2uE" firstAttribute="top" secondItem="KKD-gE-uov" secondAttribute="centerY" multiplier="32/323.5" id="vDf-Fd-jVc"/>
@@ -86,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="memoView" destination="0Yf-D6-9KG" id="LG4-0w-xgM"/>
+                        <outlet property="textCountLabel" destination="B5e-7s-xzv" id="TE1-dg-QRO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPo-Az-1vl" userLabel="First Responder" sceneMemberID="firstResponder"/>
