@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pIR-KJ-eCI">
-                                <rect key="frame" x="0.0" y="123.5" width="375" height="543.5"/>
+                                <rect key="frame" x="0.0" y="143.5" width="375" height="523.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="26" maxX="0.0" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="26" minimumInteritemSpacing="10" id="uuR-Kt-qjU">
@@ -51,8 +51,8 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47D-tf-g3p">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="123.5"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="47D-tf-g3p">
+                                <rect key="frame" x="0.0" y="23" width="375" height="101"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메모의 주요 키워드를 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phi-CL-2Mt">
                                         <rect key="frame" x="50" y="57" width="275.5" height="24"/>
@@ -71,6 +71,9 @@
                                         <state key="normal" title="다음">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="lJO-Yp-YQg" kind="show" id="ZwJ-Xm-Meb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jx7-Ha-8GL">
                                         <rect key="frame" x="6" y="2" width="35" height="40"/>
@@ -97,7 +100,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="47D-tf-g3p" firstAttribute="top" secondItem="WCA-eU-Hb9" secondAttribute="top" id="DSD-NL-olQ"/>
+                            <constraint firstItem="47D-tf-g3p" firstAttribute="top" secondItem="WCA-eU-Hb9" secondAttribute="top" constant="20" id="DSD-NL-olQ"/>
                             <constraint firstItem="47D-tf-g3p" firstAttribute="trailing" secondItem="575-di-Qt0" secondAttribute="trailing" id="KZd-yl-Uax"/>
                             <constraint firstItem="575-di-Qt0" firstAttribute="bottom" secondItem="pIR-KJ-eCI" secondAttribute="bottom" id="LXn-wB-hfh"/>
                             <constraint firstItem="575-di-Qt0" firstAttribute="trailing" secondItem="pIR-KJ-eCI" secondAttribute="trailing" id="awW-Cc-PPb"/>
@@ -108,11 +111,7 @@
                         <viewLayoutGuide key="safeArea" id="575-di-Qt0"/>
                     </view>
                     <navigationItem key="navigationItem" id="7zm-fn-3ea">
-                        <barButtonItem key="rightBarButtonItem" title="다음" id="egd-pt-3Uh">
-                            <connections>
-                                <segue destination="lJO-Yp-YQg" kind="show" id="zZ0-q3-Hpc"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="다음" id="egd-pt-3Uh"/>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>

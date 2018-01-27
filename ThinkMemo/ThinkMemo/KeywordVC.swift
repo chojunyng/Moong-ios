@@ -14,12 +14,11 @@ class KeywordVC : UIViewController {
         didSet {
             keywordColvw.delegate = self
             keywordColvw.dataSource = self
-            keywordColvw.allowsMultipleSelection = true
-            keywordColvw.register(UINib(nibName: "KeywordCell", bundle: nil), forCellWithReuseIdentifier: "KeywordCell")
+            keywordColvw.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: "KeywordCell")
         }
     }
     
-    var selectedCells = NSMutableArray()
+    var _selectedCells = NSMutableArray()
     var keywords = [String]()
     let reuseIdentifier = "KeywordCell"
     
@@ -35,6 +34,7 @@ class KeywordVC : UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        keywordColvw.allowsMultipleSelection = true
     }
 
 }
@@ -48,13 +48,17 @@ extension KeywordVC : UICollectionViewDataSource {
         
         let cell = keywordColvw.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! KeywordCell
         
-        if selectedCells.contains(indexPath) {
+        if _selectedCells.contains(indexPath) {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.top)
+
             cell.isSelected = true
             cell.backgroundColor = UIColor.init(hex: 0xffcd00)
+            cell.title.textColor = UIColor.white
         }
         else{
             cell.isSelected = false
             cell.backgroundColor = UIColor.white
+            cell.title.textColor = UIColor.init(hex: 0x4A4A4A)
         }
         
         return cell
@@ -62,14 +66,22 @@ extension KeywordVC : UICollectionViewDataSource {
     
     // select, deselect cells
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCells.add(indexPath)
-        keywordColvw.reloadItems(at: [indexPath])
+        guard _selectedCells.count < 3 else { return }
+        _selectedCells.add(indexPath)
+        collectionView.reloadItems(at: [indexPath])
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        selectedCells.remove(indexPath)
-        keywordColvw.reloadItems(at: [indexPath])
+        _selectedCells.remove(indexPath)
+        collectionView.reloadItems(at: [indexPath])
+
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//
+//
+//        print("yes")
+//    }
     
 }
 

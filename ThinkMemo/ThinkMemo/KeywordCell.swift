@@ -11,6 +11,8 @@ import UIKit
 class KeywordCell: UICollectionViewCell {
     @IBOutlet var title: UILabel!
     
+    var is_selected : Bool = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
