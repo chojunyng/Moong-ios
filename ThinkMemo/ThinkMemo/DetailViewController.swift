@@ -220,7 +220,7 @@ class DetailViewController: UIViewController {
             keywordVC.keywords = item.keywords!
             
             self.present(keywordVC, animated: false, completion: nil)
-        }        
+        }
     }
 
     // MARK: Life Cycle
