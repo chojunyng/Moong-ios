@@ -23,6 +23,10 @@ class KeywordVC : UIViewController {
         }
     }
     
+    
+    
+    
+    
     let reuseIdentifier = "KeywordCell"
     let MaximumNumberOfTaps = 3
     var selectedCells = NSMutableArray()

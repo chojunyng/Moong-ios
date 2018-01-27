@@ -156,9 +156,7 @@
                                     <color key="titleColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="pTs-hf-KJL" kind="show" id="f1I-AL-ybS">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="pTs-hf-KJL" kind="show" id="fRA-vk-puw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AO-5Z-NlH">
@@ -218,7 +216,7 @@
                         <viewLayoutGuide key="safeArea" id="FEx-Ry-WF3"/>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="9AO-5Z-NlH" id="Ga2-BX-qHv"/>
+                        <outlet property="backButton" destination="9AO-5Z-NlH" id="GPv-5v-9gH"/>
                         <outlet property="containerView" destination="RQh-eq-Wjy" id="CQm-Xq-8Qo"/>
                         <outlet property="textCountLabel" destination="N9q-Nv-rzE" id="qOr-XA-Eig"/>
                         <outlet property="textView" destination="Peo-pq-B9u" id="Kfj-9G-nr9"/>
@@ -306,18 +304,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qbe-fD-HGX"/>
                     </view>
-                    <connections>
-                        <outlet property="containerView" destination="6H3-uk-F9f" id="Whc-G0-omf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAe-Fx-7DF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1822" y="-268"/>
+            <point key="canvasLocation" x="-1750" y="-268"/>
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="16" height="16"/>
-        <image name="completeLogo" width="16" height="16"/>
+        <image name="background" width="375" height="667"/>
+        <image name="completeLogo" width="11" height="42"/>
         <image name="keyword" width="375" height="144"/>
         <image name="left_arrow" width="10" height="17"/>
     </resources>
