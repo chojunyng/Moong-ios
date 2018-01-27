@@ -109,6 +109,97 @@
             </objects>
             <point key="canvasLocation" x="320.80000000000001" y="62.518740629685162"/>
         </scene>
+        <!--Edit Memo View Controller-->
+        <scene sceneID="aP5-GR-EmM">
+            <objects>
+                <viewController storyboardIdentifier="EditMemoViewController" id="6je-iv-MYd" customClass="EditMemoViewController" customModule="ThinkMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="13L-oU-1xT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etT-vq-1jt" userLabel="취소">
+                                <rect key="frame" x="14" y="38" width="18" height="17"/>
+                                <color key="tintColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="combinedShape"/>
+                                <connections>
+                                    <action selector="cancelButtonDidTapped:" destination="6je-iv-MYd" eventType="touchUpInside" id="gfo-pS-J1O"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글수정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJq-B0-aKe">
+                                <rect key="frame" x="162" y="34" width="50" height="25"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-nl-kdv">
+                                <rect key="frame" x="332" y="34" width="33.5" height="25"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <color key="tintColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="수정">
+                                    <color key="titleColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonDidTapped:" destination="6je-iv-MYd" eventType="touchUpInside" id="ofd-vx-ZWW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/400)자" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi6-L9-5Dy">
+                                <rect key="frame" x="249" y="71.5" width="90" height="14.5"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                <color key="textColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLY-2P-fJV">
+                                <rect key="frame" x="36" y="94.5" width="303" height="350"/>
+                                <color key="tintColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="etT-vq-1jt" firstAttribute="leading" secondItem="afb-Ff-FTF" secondAttribute="centerX" multiplier="14/187.5" id="3qI-2g-fLn"/>
+                            <constraint firstItem="IfR-nl-kdv" firstAttribute="height" secondItem="YJq-B0-aKe" secondAttribute="height" id="9pA-jg-qyC"/>
+                            <constraint firstItem="etT-vq-1jt" firstAttribute="height" secondItem="afb-Ff-FTF" secondAttribute="height" multiplier="18/667" id="CrA-HI-2zr"/>
+                            <constraint firstItem="oLY-2P-fJV" firstAttribute="width" secondItem="afb-Ff-FTF" secondAttribute="width" multiplier="303/375" id="Eyb-0T-r57"/>
+                            <constraint firstItem="oLY-2P-fJV" firstAttribute="top" secondItem="afb-Ff-FTF" secondAttribute="centerY" multiplier="89/323.5" id="IcE-KU-ffR"/>
+                            <constraint firstItem="Pi6-L9-5Dy" firstAttribute="leading" secondItem="afb-Ff-FTF" secondAttribute="centerX" multiplier="249/187.5" id="LR8-xI-eWP"/>
+                            <constraint firstItem="YJq-B0-aKe" firstAttribute="width" secondItem="afb-Ff-FTF" secondAttribute="width" multiplier="50/375" id="MqQ-W0-R8t"/>
+                            <constraint firstItem="oLY-2P-fJV" firstAttribute="height" secondItem="afb-Ff-FTF" secondAttribute="height" multiplier="350/647" id="PbR-aP-xNR"/>
+                            <constraint firstItem="etT-vq-1jt" firstAttribute="centerY" secondItem="YJq-B0-aKe" secondAttribute="centerY" id="XGa-QE-Hwt"/>
+                            <constraint firstItem="YJq-B0-aKe" firstAttribute="centerX" secondItem="afb-Ff-FTF" secondAttribute="centerX" id="YzE-vg-zbJ"/>
+                            <constraint firstItem="Pi6-L9-5Dy" firstAttribute="height" secondItem="afb-Ff-FTF" secondAttribute="height" multiplier="15/667" id="esN-3g-GM5"/>
+                            <constraint firstItem="IfR-nl-kdv" firstAttribute="leading" secondItem="afb-Ff-FTF" secondAttribute="centerX" multiplier="332/187.5" id="f1U-US-NlG"/>
+                            <constraint firstItem="IfR-nl-kdv" firstAttribute="centerY" secondItem="YJq-B0-aKe" secondAttribute="centerY" id="f5k-Pt-5vE"/>
+                            <constraint firstItem="Pi6-L9-5Dy" firstAttribute="width" secondItem="afb-Ff-FTF" secondAttribute="width" multiplier="90/375" id="in8-WJ-dpT"/>
+                            <constraint firstItem="YJq-B0-aKe" firstAttribute="height" secondItem="afb-Ff-FTF" secondAttribute="height" multiplier="25/647" id="iva-sJ-tlp"/>
+                            <constraint firstItem="IfR-nl-kdv" firstAttribute="width" secondItem="afb-Ff-FTF" secondAttribute="width" multiplier="30/337" id="kj7-jS-xJt"/>
+                            <constraint firstItem="YJq-B0-aKe" firstAttribute="top" secondItem="afb-Ff-FTF" secondAttribute="centerY" multiplier="32/323.5" id="peY-g2-JZc"/>
+                            <constraint firstItem="etT-vq-1jt" firstAttribute="width" secondItem="afb-Ff-FTF" secondAttribute="width" multiplier="18/375" id="wUr-Vj-gXB"/>
+                            <constraint firstItem="oLY-2P-fJV" firstAttribute="centerX" secondItem="afb-Ff-FTF" secondAttribute="centerX" id="xaK-tJ-lLm"/>
+                            <constraint firstItem="oLY-2P-fJV" firstAttribute="top" secondItem="Pi6-L9-5Dy" secondAttribute="bottom" constant="9" id="xmn-hn-bx9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="afb-Ff-FTF"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="x1f-d3-Yvr" appends="YES" id="Syl-UQ-eWd"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="memoView" destination="oLY-2P-fJV" id="c1O-7s-pA4"/>
+                        <outlet property="saveButton" destination="IfR-nl-kdv" id="Kle-ot-P6j"/>
+                        <outlet property="textCountLabel" destination="Pi6-L9-5Dy" id="Rkv-gL-eLc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aS1-vV-mLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="x1f-d3-Yvr">
+                    <connections>
+                        <action selector="backgroundDidTapped:" destination="6je-iv-MYd" id="qqK-8v-Vjg"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1191" y="63"/>
+        </scene>
     </scenes>
     <resources>
         <image name="combinedShape" width="18" height="18"/>

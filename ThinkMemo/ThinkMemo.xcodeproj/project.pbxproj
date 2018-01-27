@@ -24,6 +24,7 @@
 		722F9E3F201C6E9F003F4757 /* NewMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */; };
 		722F9E41201C7EEC003F4757 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E40201C7EEC003F4757 /* DetailViewController.swift */; };
 		722F9E43201CB686003F4757 /* DeleteMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */; };
+		72FA9E7A201D2744000ADF9E /* EditMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FA9E79201D2744000ADF9E /* EditMemoViewController.swift */; };
 		83A24D8FC4B23156EFC8FDE0 /* Pods_ThinkMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13DFBCF5023F1A81BC8A246 /* Pods_ThinkMemo.framework */; };
 		CB20DF8C201CEDCE00262002 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB20DF8B201CEDCE00262002 /* MainViewController.swift */; };
 		CB20DF90201CEE3000262002 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB20DF8F201CEE3000262002 /* MemoCell.swift */; };
@@ -52,6 +53,7 @@
 		722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoViewController.swift; sourceTree = "<group>"; };
 		722F9E40201C7EEC003F4757 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMemoViewController.swift; sourceTree = "<group>"; };
+		72FA9E79201D2744000ADF9E /* EditMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoViewController.swift; sourceTree = "<group>"; };
 		C13DFBCF5023F1A81BC8A246 /* Pods_ThinkMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThinkMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB20DF8B201CEDCE00262002 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CB20DF8F201CEE3000262002 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				722F9E40201C7EEC003F4757 /* DetailViewController.swift */,
 				722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */,
 				722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */,
+				72FA9E79201D2744000ADF9E /* EditMemoViewController.swift */,
 				30242D20201C64FB00B6B633 /* Main.storyboard */,
 				722F9E36201C6BA0003F4757 /* NewMemo.storyboard */,
 				301AA0A6201D0CB30033ECDA /* Keyword.storyboard */,
@@ -294,6 +297,7 @@
 				301AA0AD201D0CD30033ECDA /* KeywordVC.swift in Sources */,
 				CB20DF8C201CEDCE00262002 /* MainViewController.swift in Sources */,
 				722F9E43201CB686003F4757 /* DeleteMemoViewController.swift in Sources */,
+				72FA9E7A201D2744000ADF9E /* EditMemoViewController.swift in Sources */,
 				722F9E41201C7EEC003F4757 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

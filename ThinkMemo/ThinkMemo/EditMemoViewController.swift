@@ -1,15 +1,15 @@
 //
-//  NewMemoViewController.swift
+//  EditMemoViewController.swift
 //  ThinkMemo
 //
-//  Created by JUN LEE on 2018. 1. 27..
+//  Created by JUN LEE on 2018. 1. 28..
 //  Copyright © 2018년 Unithon. All rights reserved.
 //
 
 import UIKit
 
-class NewMemoViewController: UIViewController {
-
+class EditMemoViewController: UIViewController {
+    
     // MARK: Properties
     
     // 앱 델리게이트 객체의 참조 정보를 읽어온다
@@ -18,9 +18,11 @@ class NewMemoViewController: UIViewController {
     var subject: String!
     lazy var dao = MemoDAO()
     
+    var editText: String!
+    
     @IBOutlet var saveButton: UIButton!
     @IBOutlet private var textCountLabel: UILabel!
-    @IBOutlet private var memoView: UITextView! {
+    @IBOutlet var memoView: UITextView! {
         didSet {
             memoView.delegate = self
             
@@ -43,33 +45,33 @@ class NewMemoViewController: UIViewController {
     }
     
     @IBAction private func saveButtonDidTapped(_ sender: UIButton) {
-        // MemoData 객체를 생성하고, 데이터를 담는다.
-        let data = MemoData()
-        
-        data.title = subject
-        data.content = memoView.text
-        data.regdate = Date()
-        
-        // 코어 데이터에 메모 데이터를 추가한다.
-        dao.insert(data)
-        
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            
-            self.view.endEditing(true)
-            detailViewController.data = data
-            UIApplication.shared.keyWindow?.rootViewController = detailViewController
-        }
+//        // MemoData 객체를 생성하고, 데이터를 담는다.
+//        let data = MemoData()
+//
+//        data.title = subject
+//        data.content = memoView.text
+//        data.regdate = Date()
+//
+//        // 코어 데이터에 메모 데이터를 추가한다.
+//        dao.insert(data)
+//
+//
+//        
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        if let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+//
+//            self.view.endEditing(true)
+//            detailViewController.data = data
+//            UIApplication.shared.keyWindow?.rootViewController = detailViewController
+//        }
     }
     
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        saveButton.isEnabled = false
-        saveButton.alpha = 0.5
         
+        memoView.text = editText
         memoView.tintColor = UIColor(red: 3.0/255.0,
                                      green: 3.0/255.0,
                                      blue: 3.0/255.0,
@@ -79,9 +81,14 @@ class NewMemoViewController: UIViewController {
 }
 
 
-extension NewMemoViewController: UITextViewDelegate {
+extension EditMemoViewController: UITextViewDelegate {
     
     // TextView Delegate
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let currentCount = textView.text.count
+        textCountLabel.text = "(\(currentCount)/400)자"
+    }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
@@ -112,3 +119,4 @@ extension NewMemoViewController: UITextViewDelegate {
         subject = contents.substring(with: NSRange(location: 0, length: length))
     }
 }
+
