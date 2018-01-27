@@ -25,10 +25,8 @@ class DataSync {
             return
         }
         
-        // API 호출
-        
-        
-        
+        // 서버 호출
+    
         // 영구 저장소에 커밋한다.
         do {
             try context.save()
