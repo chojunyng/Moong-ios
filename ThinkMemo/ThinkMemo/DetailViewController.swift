@@ -16,13 +16,17 @@ class DetailViewController: UIViewController {
     lazy var dao = MemoDAO()
     var data = MemoData()
     
-    
     // 앱 델리게이트 객체의 참조 정보를 읽어온다
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.text = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        if let regdate = data.regdate {
+            let writeDate = dateFormatter.string(from: regdate)
+            titleLabel.text = "\(writeDate)"
+        }
         titleLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 17.0)
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -30,10 +34,21 @@ class DetailViewController: UIViewController {
         return titleLabel
     }()
     
+    private lazy var backButton: UIButton = {
+        let backButton = UIButton(type: .system)
+        backButton.setImage(#imageLiteral(resourceName: "backBtn"), for: .normal)
+        backButton.tintColor = UIColor(red: 1.0, green: 205.0/255.0, blue: 0.0, alpha: 1.0)
+        backButton.addTarget(self, action: #selector(backButtonDidTapped(_:)), for: .touchUpInside)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        return backButton
+    }()
+    
     private lazy var deleteButton: UIButton = {
         let deleteButton = UIButton(type: .system)
         deleteButton.setTitle("삭제", for: .normal)
         deleteButton.titleLabel?.textColor = UIColor(red: 1.0, green: 198.0/255.0, blue: 0.0, alpha: 1.0)
+        deleteButton.tintColor = UIColor(red: 1.0, green: 198.0/255.0, blue: 0.0, alpha: 1.0)
         deleteButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 17.0)
         deleteButton.addTarget(self, action: #selector(deleteButtonDidTapped(_:)), for: .touchUpInside)
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
@@ -112,7 +127,7 @@ class DetailViewController: UIViewController {
         keywordButton.setTitle("생각 정리하기", for: .normal)
         keywordButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20.0)
         keywordButton.tintColor = .white
-        keywordButton.backgroundColor = UIColor(red: 1.0, green: 205.0/255.0, blue: 0.0, alpha: 1.0)
+        keywordButton.backgroundColor = UIColor(red: 0.0, green: 163.0/255.0, blue: 190.0/255.0, alpha: 1.0)
         keywordButton.translatesAutoresizingMaskIntoConstraints = false
         
         keywordButton.addTarget(self, action: #selector(keywordButtonDidTapped(_:)), for: .touchUpInside)
@@ -121,6 +136,17 @@ class DetailViewController: UIViewController {
     }()
     
     // MARK: Methods
+    
+    @objc private func backButtonDidTapped(_ sender: UIButton) {
+        if let navigation = navigationController {
+            navigation.popViewController(animated: true)
+        } else {
+            if let mainViewController = self.storyboard?.instantiateInitialViewController() {
+                
+                UIApplication.shared.keyWindow?.rootViewController = mainViewController
+            }
+        }
+    }
     
     @objc private func deleteButtonDidTapped(_ sender: UIButton) {
         if let deleteMemoViewController = self.storyboard?.instantiateViewController(withIdentifier: "DeleteMemoViewController") as? DeleteMemoViewController {
@@ -188,6 +214,10 @@ class DetailViewController: UIViewController {
         
         self.navigationItem.titleView = titleLabel
         
+        self.view.addSubview(titleLabel)
+        self.view.addConstraints(titleLabelConstraints())
+        self.view.addSubview(backButton)
+        self.view.addConstraints(backButtonConstraints())
         self.view.addSubview(deleteButton)
         self.view.addConstraints(deleteButtonConstraints())
 
@@ -213,10 +243,55 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController {
-    private func deleteButtonConstraints() -> [NSLayoutConstraint] {
-        let topConstraint = NSLayoutConstraint(item: deleteButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0.0)
+    private func titleLabelConstraints() -> [NSLayoutConstraint] {
+        let topConstraint = NSLayoutConstraint(
+            item: titleLabel, attribute: .top, relatedBy: .equal,
+            toItem: self.view, attribute: .centerY, multiplier: 32.0/333.5, constant: 0.0)
+        let centerXConstraint = NSLayoutConstraint(
+            item: titleLabel, attribute: .centerX, relatedBy: .equal,
+            toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        let widthConstraint = NSLayoutConstraint(
+            item: titleLabel, attribute: .width, relatedBy: .equal,
+            toItem: self.view, attribute: .width, multiplier: 85.0/375.0, constant: 0.0)
+        let heightConstraint = NSLayoutConstraint(
+            item: titleLabel, attribute: .height, relatedBy: .equal,
+            toItem: self.view, attribute: .height, multiplier: 20.0/667.0, constant: 0.0)
         
-        return [topConstraint]
+        return [topConstraint, centerXConstraint, widthConstraint, heightConstraint]
+    }
+    
+    private func backButtonConstraints() -> [NSLayoutConstraint] {
+        let leadingConstraint = NSLayoutConstraint(
+            item: backButton, attribute: .leading, relatedBy: .equal,
+            toItem: self.view, attribute: .centerX, multiplier: 11.0/187.5, constant: 0.0)
+        let centerYConstraint = NSLayoutConstraint(
+            item: backButton, attribute: .centerY, relatedBy: .equal,
+            toItem: titleLabel, attribute: .centerY, multiplier: 1.0, constant: 0.0)
+        let widthConstraint = NSLayoutConstraint(
+            item: backButton, attribute: .width, relatedBy: .equal,
+            toItem: self.view, attribute: .width, multiplier: 13.0/375.0, constant: 0.0)
+        let heightConstraint = NSLayoutConstraint(
+            item: backButton, attribute: .height, relatedBy: .equal,
+            toItem: titleLabel, attribute: .height, multiplier: 1.0, constant: 0.0)
+        
+        return [leadingConstraint, centerYConstraint, widthConstraint, heightConstraint]
+    }
+    
+    private func deleteButtonConstraints() -> [NSLayoutConstraint] {
+        let leadingConstraint = NSLayoutConstraint(
+            item: deleteButton, attribute: .leading, relatedBy: .equal,
+            toItem: self.view, attribute: .centerX, multiplier: 332.0/187.5, constant: 0.0)
+        let centerYConstraint = NSLayoutConstraint(
+            item: deleteButton, attribute: .centerY, relatedBy: .equal,
+            toItem: titleLabel, attribute: .centerY, multiplier: 1.0, constant: 0.0)
+        let widthConstraint = NSLayoutConstraint(
+            item: deleteButton, attribute: .width, relatedBy: .equal,
+            toItem: self.view, attribute: .width, multiplier: 35.0/375.0, constant: 0.0)
+        let heightConstraint = NSLayoutConstraint(
+            item: deleteButton, attribute: .height, relatedBy: .equal,
+            toItem: titleLabel, attribute: .height, multiplier: 1.0, constant: 0.0)
+        
+        return [leadingConstraint, centerYConstraint, widthConstraint, heightConstraint]
     }
     
     private func resultBaseViewConstraints() -> [NSLayoutConstraint] {
