@@ -10,7 +10,8 @@ import UIKit
 
 class HeaderMemoCell: UITableViewCell {
 
-    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var titleImage: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
