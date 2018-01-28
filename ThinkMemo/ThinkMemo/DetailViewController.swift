@@ -204,7 +204,8 @@ class DetailViewController: UIViewController {
             
             if let keywordVC = keywordNavigation.topViewController as? KeywordVC {
                 if let itemKeywords = item.keywords {
-                    keywordVC.keywords = itemKeywords
+                    
+                    keywordVC.data = data
                     self.present(keywordNavigation, animated: true, completion: nil)
                 } else {
                     print("no keywords")

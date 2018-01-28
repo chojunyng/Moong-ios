@@ -12,6 +12,10 @@ class CombineWordsVC: UIViewController {
     
     let reuseidentifier = "KeywordCell"
     
+    var keywords = [String]()
+    var data = MemoData()
+    
+    
     @IBOutlet var wordsColvw: UICollectionView! {
         didSet {
             wordsColvw.delegate = self
@@ -48,6 +52,17 @@ class CombineWordsVC: UIViewController {
     @IBAction func backButtonDidTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func nextButtonDidTapped(_ sender: Any) {
+        if let combineWordsVC = self.storyboard?.instantiateViewController(withIdentifier: "CompleteCombineVC") as? CompleteCombineVC {
+            
+           combineWordsVC.contents = textView.text
+           combineWordsVC.data = data
+            combineWordsVC.keywords = keywords
+            
+            self.navigationController?.pushViewController(combineWordsVC, animated: true)
+        }
+    }
+    
     
     
     override func viewDidLoad() {
@@ -75,6 +90,7 @@ extension CombineWordsVC : UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize{
         
         
+        
         if indexPath.item == 1 {
             return CGSize(width: 111, height: 30)
         }
@@ -86,14 +102,14 @@ extension CombineWordsVC : UICollectionViewDelegateFlowLayout {
 
 extension CombineWordsVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return keywords.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = wordsColvw.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath) as! KeywordCell
         cell.backgroundColor = UIColor.init(hex: 0xffcd00)
         cell.title.textColor = .white
-        
+        cell.title.text = keywords[indexPath.item]
         return cell
     }
 }
