@@ -68,7 +68,9 @@ class CombineWordsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(tapGesture)
-        // Do any additional setup after loading the view.
+        
+        textView.tintColor = UIColor(red: 72.0/255.0, green: 79.0/255.0, blue: 77.0/255.0, alpha: 1.0)
+        textView.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {

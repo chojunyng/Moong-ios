@@ -93,7 +93,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.backgroundColor = UIColor.clear
         cell.isUserInteractionEnabled = true
         
-        cell.contentLabel.text = memolist[indexPath.row].content
+        memolist = dao.fetch()
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
         if let regdate = memolist[indexPath.row].regdate {
@@ -104,9 +105,12 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         if let _ = memolist[indexPath.row].result {
             cell.shadowButton.isHidden = true
             cell.shadowView.isHidden = true
+            cell.contentLabel.text = memolist[indexPath.row].result
             cell.selectionStyle = .none
         } else {
-            tableView.allowsSelection = false
+            cell.contentLabel.text = memolist[indexPath.row].content
+            cell.selectionStyle = .none
+//            tableView.allowsSelection = false
             cell.shadowButton.addTarget(self,
                                         action: #selector(cellDidTapped(_:)),
                                         for: .touchUpInside)

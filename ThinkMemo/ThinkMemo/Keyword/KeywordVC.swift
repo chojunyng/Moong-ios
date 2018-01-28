@@ -84,6 +84,17 @@ extension KeywordVC : UICollectionViewDataSource {
         cell.isCellSelected = selectedCells.contains(indexPath)
         cell.title.text = "#\(data.keywords![indexPath.item])"
         
+        if selectedCells.contains(indexPath) {
+            cell.isSelected = true
+            cell.backgroundColor = UIColor.init(hex: 0xffcd00)
+            cell.title.textColor = UIColor.white
+        }
+        else{
+            cell.isSelected = false
+            cell.backgroundColor = UIColor.white
+            cell.title.textColor = UIColor.init(hex: 0x4A4A4A)
+        }
+        
         return cell
     }
     
@@ -97,7 +108,6 @@ extension KeywordVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         selectedCells.remove(indexPath)
         collectionView.reloadItems(at: [indexPath])
-
     }
 }
 

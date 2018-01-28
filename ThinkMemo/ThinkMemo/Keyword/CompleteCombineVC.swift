@@ -17,30 +17,33 @@ class CompleteCombineVC: UIViewController {
     lazy var dao = MemoDAO()
     
     
-    @IBOutlet var containerView: UIView! {
-        didSet {
-            containerView.layer.cornerRadius = 30
-            containerView.layer.backgroundColor = UIColor.white.cgColor
-            containerView.layer.shadowColor = UIColor.darkGray.cgColor
-            containerView.layer.masksToBounds = false
-            containerView.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
-            containerView.layer.shadowOpacity = 0.1
-            containerView.layer.shadowRadius = 30
-        }
-    }
+    @IBOutlet var containerView: UIView!
     
     @IBAction func backButtonDidTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBOutlet var textView: UITextView!
+//        didSet {
+//            let style = NSMutableParagraphStyle()
+//            style.lineSpacing = 10.0
+//            let attributes = [NSAttributedStringKey.paragraphStyle: style,
+//                              NSAttributedStringKey.font: UIFont(name: "AppleSDGothicNeo-Regular",
+//                                                                 size: 15.0)]
+//            textView.attributedText = NSAttributedString(string: textView.text,
+//                                                              attributes: attributes)
+//        }
+//    }
     @IBAction func storeAction(_ sender: Any) {
         data.keywords = keywords
         data.result = contents
         
         dao.update(data: data)
         
-        print("완료")
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if let mainViewController = mainStoryboard.instantiateInitialViewController() {
+            UIApplication.shared.keyWindow?.rootViewController = mainViewController
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +54,13 @@ class CompleteCombineVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        containerView.layer.backgroundColor = UIColor.white.cgColor
+        containerView.layer.shadowColor = UIColor.darkGray.cgColor
+        containerView.layer.masksToBounds = false
+        containerView.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
+        containerView.layer.shadowOpacity = 0.1
+        containerView.layer.shadowRadius = 30
+        
         // Do any additional setup after loading the view.
     }
 

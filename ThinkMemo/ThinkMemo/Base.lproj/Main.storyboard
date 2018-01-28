@@ -27,9 +27,31 @@
                     <view key="view" contentMode="scaleToFill" id="BTS-mG-6Y5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pSy-Oc-oOu">
+                                <rect key="frame" x="38" y="245" width="299" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="8" id="IaX-Vl-ZAp">
+                                    <size key="itemSize" width="86" height="30"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="38" minY="0.0" maxX="38" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pSy-Oc-oOu" firstAttribute="height" secondItem="BTS-mG-6Y5" secondAttribute="height" multiplier="30/667" id="AzV-cP-Bza"/>
+                            <constraint firstItem="pSy-Oc-oOu" firstAttribute="width" secondItem="BTS-mG-6Y5" secondAttribute="width" multiplier="299/375" id="fBL-Xl-XwO"/>
+                            <constraint firstItem="pSy-Oc-oOu" firstAttribute="centerX" secondItem="ukR-bp-rvO" secondAttribute="centerX" id="q3R-M9-dVu"/>
+                            <constraint firstItem="pSy-Oc-oOu" firstAttribute="top" secondItem="ukR-bp-rvO" secondAttribute="centerY" multiplier="238/333.5" id="yhK-lE-ZpC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ukR-bp-rvO"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="pSy-Oc-oOu" id="LNl-4K-w4d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyC-tf-3Ke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

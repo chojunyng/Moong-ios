@@ -10,6 +10,13 @@ import UIKit
 import Alamofire
 
 class DetailViewController: UIViewController {
+    @IBOutlet var collectionView: UICollectionView! {
+        didSet {
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            collectionView.register(UINib(nibName: "KeywordCell", bundle: nil), forCellWithReuseIdentifier: "KeywordCell")
+        }
+    }
     
     // MARK: Properties
  
@@ -85,7 +92,8 @@ class DetailViewController: UIViewController {
     
     private lazy var resultTextView: UITextView = {
         let resultTextView = UITextView()
-        resultTextView.text = ""
+        resultTextView.text = data.result
+
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 10.0
         let attributes = [NSAttributedStringKey.paragraphStyle: style,
@@ -101,10 +109,11 @@ class DetailViewController: UIViewController {
         return resultTextView
     }()
     
-    private lazy var keywordsCollectionView: UICollectionView = {
-        let keywordsCollectionView = UICollectionView()
-        
-        return keywordsCollectionView
+
+    
+    private lazy var flowLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+        return flowLayout
     }()
     
     private lazy var divisionView: UIView = {
@@ -229,6 +238,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if collectionView.isDescendant(of: self.view) {
+            collectionView.removeFromSuperview()
+        }
         // 데이터 처리
         // 코어 데이터에 저장된 데이터를 가져온다.
         appDelegate.memolist = dao.fetch()
@@ -256,6 +268,8 @@ class DetailViewController: UIViewController {
             self.view.addConstraints(resultBaseViewConstraints())
             self.view.addSubview(resultTextView)
             self.view.addConstraints(resultTextViewConstraints())
+            self.view.addSubview(collectionView)
+            self.view.addConstraints(keywordsCollectionViewConstraints())
             self.view.addSubview(divisionView)
             self.view.addConstraints(divisionViewConstraints())
         }
@@ -394,20 +408,20 @@ extension DetailViewController {
         return [centerYConstraint, centerXConstraint, widthConstraint, heightConstraint]
     }
     
-    private func keywordsStackViewConstraints() -> [NSLayoutConstraint] {
+    private func keywordsCollectionViewConstraints() -> [NSLayoutConstraint] {
         let topConstraint = NSLayoutConstraint(
-            item: keywordsCollectionView, attribute: .top, relatedBy: .equal,
+            item: collectionView, attribute: .top, relatedBy: .equal,
             toItem: self.view, attribute: .centerY, multiplier: 238.0/333.5, constant: 0.0)
         let centerXConstraint = NSLayoutConstraint(
-            item: keywordsCollectionView, attribute: .centerX, relatedBy: .equal,
+            item: collectionView, attribute: .centerX, relatedBy: .equal,
             toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
         let widthConstraint = NSLayoutConstraint(
-            item: keywordsCollectionView, attribute: .width, relatedBy: .equal,
+            item: collectionView, attribute: .width, relatedBy: .equal,
             toItem: self.view, attribute: .width, multiplier: 299.0/375.0, constant: 0.0)
         let heightConstraint = NSLayoutConstraint(
-            item: keywordsCollectionView, attribute: .height, relatedBy: .equal,
+            item: collectionView, attribute: .height, relatedBy: .equal,
             toItem: self.view, attribute: .height, multiplier: 30.0/667.0, constant: 0.0)
-        
+
         return [topConstraint, centerXConstraint, widthConstraint, heightConstraint]
     }
     
@@ -479,3 +493,30 @@ extension DetailViewController {
         return [topConstraint, leadingConstraint, trailingConstraint, bottomConstraint]
     }
 }
+
+extension DetailViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.keywords?.count ?? 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath) as! KeywordCell
+        cell.backgroundColor = UIColor.init(hex: 0xffcd00)
+        cell.title.textColor = .white
+        cell.title.text = data.keywords?[indexPath.item]
+        return cell
+    }
+}
+
+extension DetailViewController : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        guard collectionViewLayout is UICollectionViewFlowLayout else {
+            return .zero
+        }
+        let cellCount = CGFloat(collectionView.numberOfItems(inSection: section))
+        
+        return cellCount > 0 ? UIEdgeInsetsMake(0, 0, 0, 0) : .zero
+    }
+}
+
