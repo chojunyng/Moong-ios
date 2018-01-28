@@ -14,6 +14,7 @@
     <customFonts key="customFonts">
         <array key="AppleSDGothicNeo.ttc">
             <string>AppleSDGothicNeo-Medium</string>
+            <string>AppleSDGothicNeo-Regular</string>
             <string>AppleSDGothicNeo-SemiBold</string>
             <string>AppleSDGothicNeo-Thin</string>
         </array>
@@ -33,6 +34,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyC-tf-3Ke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1236" y="136.28185907046478"/>
+        </scene>
+        <!--Keyword Error View Controller-->
+        <scene sceneID="EBS-0C-RuW">
+            <objects>
+                <viewController storyboardIdentifier="KeywordErrorMemoViewController" id="utN-Ck-Q3l" customClass="KeywordErrorViewController" customModule="ThinkMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WWQ-KG-ai9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1K-Hu-Gsr">
+                                <rect key="frame" x="68" y="215.5" width="238" height="220"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group2" translatesAutoresizingMaskIntoConstraints="NO" id="BLF-3q-Dgv">
+                                        <rect key="frame" x="100" y="36" width="38" height="38"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qx-qc-1oP">
+                                        <rect key="frame" x="67" y="84" width="104" height="20"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <color key="textColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t72-ik-TVd">
+                                        <rect key="frame" x="24" y="116" width="190" height="38"/>
+                                        <string key="text">데이터를 불러오는 중입니다.
+잠시 후에 다시 시도해주세요.</string>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                        <color key="textColor" red="0.28235294119999998" green="0.30980392159999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vk5-Fn-PSC">
+                                        <rect key="frame" x="52.5" y="169" width="133" height="29"/>
+                                        <color key="backgroundColor" red="1" green="0.80392156862745101" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="확인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="doneButtonDidTapped:" destination="utN-Ck-Q3l" eventType="touchUpInside" id="FYh-fW-asy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="t72-ik-TVd" firstAttribute="top" secondItem="U1K-Hu-Gsr" secondAttribute="centerY" multiplier="116/110" id="0PL-KS-8PM"/>
+                                    <constraint firstItem="Vk5-Fn-PSC" firstAttribute="height" secondItem="U1K-Hu-Gsr" secondAttribute="height" multiplier="29/220" id="2kd-M5-nHl"/>
+                                    <constraint firstItem="BLF-3q-Dgv" firstAttribute="width" secondItem="U1K-Hu-Gsr" secondAttribute="width" multiplier="38/238" id="52n-za-ttM"/>
+                                    <constraint firstItem="1Qx-qc-1oP" firstAttribute="top" secondItem="U1K-Hu-Gsr" secondAttribute="centerY" multiplier="84/110" id="8lE-hK-nF2"/>
+                                    <constraint firstItem="t72-ik-TVd" firstAttribute="width" secondItem="U1K-Hu-Gsr" secondAttribute="width" multiplier="190/238" id="HMN-Ji-qKQ"/>
+                                    <constraint firstItem="BLF-3q-Dgv" firstAttribute="centerX" secondItem="U1K-Hu-Gsr" secondAttribute="centerX" id="I8G-9V-n3G"/>
+                                    <constraint firstItem="1Qx-qc-1oP" firstAttribute="centerX" secondItem="U1K-Hu-Gsr" secondAttribute="centerX" id="LxN-eQ-F0H"/>
+                                    <constraint firstItem="Vk5-Fn-PSC" firstAttribute="top" secondItem="U1K-Hu-Gsr" secondAttribute="centerY" multiplier="169/110" id="P2D-0v-HMX"/>
+                                    <constraint firstItem="t72-ik-TVd" firstAttribute="centerX" secondItem="U1K-Hu-Gsr" secondAttribute="centerX" id="ZNq-ls-gKv"/>
+                                    <constraint firstItem="t72-ik-TVd" firstAttribute="height" secondItem="U1K-Hu-Gsr" secondAttribute="height" multiplier="38/220" id="a8d-s2-Jg5"/>
+                                    <constraint firstItem="1Qx-qc-1oP" firstAttribute="width" secondItem="U1K-Hu-Gsr" secondAttribute="width" multiplier="104/238" id="lEX-aB-PLe"/>
+                                    <constraint firstItem="Vk5-Fn-PSC" firstAttribute="centerX" secondItem="U1K-Hu-Gsr" secondAttribute="centerX" id="oQ5-Qc-QRJ"/>
+                                    <constraint firstItem="BLF-3q-Dgv" firstAttribute="top" secondItem="U1K-Hu-Gsr" secondAttribute="centerY" multiplier="36/110" id="rnR-Db-S50"/>
+                                    <constraint firstItem="Vk5-Fn-PSC" firstAttribute="width" secondItem="U1K-Hu-Gsr" secondAttribute="width" multiplier="133/238" id="sJ2-oc-EfP"/>
+                                    <constraint firstItem="1Qx-qc-1oP" firstAttribute="height" secondItem="U1K-Hu-Gsr" secondAttribute="height" multiplier="20/220" id="uS9-th-aLa"/>
+                                    <constraint firstItem="BLF-3q-Dgv" firstAttribute="height" secondItem="U1K-Hu-Gsr" secondAttribute="height" multiplier="38/220" id="vHE-ZR-gPD"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="U1K-Hu-Gsr" firstAttribute="height" secondItem="WWQ-KG-ai9" secondAttribute="height" multiplier="220/667" id="HGo-3m-FgN"/>
+                            <constraint firstItem="U1K-Hu-Gsr" firstAttribute="top" secondItem="LPd-uc-uwx" secondAttribute="centerY" multiplier="209/333.5" id="cJX-ms-6WD"/>
+                            <constraint firstItem="U1K-Hu-Gsr" firstAttribute="centerX" secondItem="LPd-uc-uwx" secondAttribute="centerX" id="dce-g0-3vJ"/>
+                            <constraint firstItem="U1K-Hu-Gsr" firstAttribute="width" secondItem="WWQ-KG-ai9" secondAttribute="width" multiplier="238/375" id="eEt-ET-T0a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LPd-uc-uwx"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="af3-Kc-2O1" appends="YES" id="ocn-gh-qG5"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OF2-6w-t9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="af3-Kc-2O1">
+                    <connections>
+                        <action selector="backgroundDidTapped:" destination="utN-Ck-Q3l" id="71x-PW-gVu"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1236" y="824.43778110944538"/>
         </scene>
         <!--Delete Memo View Controller-->
         <scene sceneID="9vB-Jy-29S">
@@ -332,6 +428,7 @@
     </scenes>
     <resources>
         <image name="group" width="48" height="53"/>
+        <image name="group2" width="38" height="38"/>
         <image name="newbutton" width="58" height="58"/>
     </resources>
 </document>
