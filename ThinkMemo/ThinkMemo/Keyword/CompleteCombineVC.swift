@@ -9,6 +9,14 @@
 import UIKit
 
 class CompleteCombineVC: UIViewController {
+    
+    
+    var keywords = [String]()
+    var contents : String?
+    var data = MemoData()
+    lazy var dao = MemoDAO()
+    
+    
     @IBOutlet var containerView: UIView! {
         didSet {
             containerView.layer.cornerRadius = 30
@@ -23,6 +31,21 @@ class CompleteCombineVC: UIViewController {
     
     @IBAction func backButtonDidTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBOutlet var textView: UITextView!
+    @IBAction func storeAction(_ sender: Any) {
+        data.keywords = keywords
+        data.result = contents
+        
+        dao.update(data: data)
+        
+        print("완료")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        textView.text = contents
     }
     
     override func viewDidLoad() {

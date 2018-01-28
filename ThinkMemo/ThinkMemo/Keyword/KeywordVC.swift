@@ -13,8 +13,7 @@ class KeywordVC : UIViewController {
     // 앱 델리게이트 객체의 참조 정보를 읽어온다
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    var data: MemoData!
-    var keywords = [String]()
+    var data = MemoData()
     
     @IBOutlet var keywordColvw: UICollectionView! {
         didSet {
@@ -23,9 +22,6 @@ class KeywordVC : UIViewController {
             keywordColvw.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         }
     }
-    
-    
-    
     
     
     let reuseIdentifier = "KeywordCell"
@@ -41,6 +37,15 @@ class KeywordVC : UIViewController {
 
         if let combineWordsVC = self.storyboard?.instantiateViewController(withIdentifier: "CombineWordsVC") as? CombineWordsVC {
 
+            var keywords = [String]()
+            
+            for idx in selectedCells {
+                let indexPath = idx as! IndexPath
+                keywords.append(data.keywords![indexPath.item])
+            }
+            
+            combineWordsVC.keywords = keywords
+            combineWordsVC.data = self.data
             self.navigationController?.pushViewController(combineWordsVC, animated: true)
         }
     }
@@ -62,14 +67,14 @@ class KeywordVC : UIViewController {
             }
         }
         */
-        print(keywords)
+        
     }
 
 }
 
 extension KeywordVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return keywords.count
+        return (data.keywords?.count)!
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -77,7 +82,7 @@ extension KeywordVC : UICollectionViewDataSource {
         let cell = keywordColvw.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! KeywordCell
         
         cell.isCellSelected = selectedCells.contains(indexPath)
-        cell.title.text = "#\(keywords[indexPath.item])"
+        cell.title.text = "#\(data.keywords![indexPath.item])"
         
         return cell
     }

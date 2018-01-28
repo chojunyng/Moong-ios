@@ -11,10 +11,10 @@
 		108F0EC0201CD08500050712 /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F0EBD201CD08500050712 /* DataSync.swift */; };
 		108F0EC1201CD08500050712 /* MomoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F0EBE201CD08500050712 /* MomoData.swift */; };
 		108F0ECB201CD14A00050712 /* ThinkMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 108F0EC9201CD14A00050712 /* ThinkMemo.xcdatamodeld */; };
+		30016EFC201D4BA20030F070 /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30016EFA201D4BA10030F070 /* KeywordCell.swift */; };
+		30016EFD201D4BA20030F070 /* KeywordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30016EFB201D4BA20030F070 /* KeywordCell.xib */; };
 		301AA0A7201D0CB30033ECDA /* Keyword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301AA0A6201D0CB30033ECDA /* Keyword.storyboard */; };
-		301AA0AC201D0CD30033ECDA /* KeywordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301AA0A9201D0CD30033ECDA /* KeywordCell.xib */; };
 		301AA0AD201D0CD30033ECDA /* KeywordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AA0AA201D0CD30033ECDA /* KeywordVC.swift */; };
-		301AA0AE201D0CD30033ECDA /* KeywordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AA0AB201D0CD30033ECDA /* KeywordCell.swift */; };
 		301AA0B0201D0CD80033ECDA /* CombineWordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AA0AF201D0CD80033ECDA /* CombineWordsVC.swift */; };
 		301AA0B8201D3BD20033ECDA /* CompleteCombineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AA0B7201D3BD20033ECDA /* CompleteCombineVC.swift */; };
 		30242D1D201C64FB00B6B633 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30242D1C201C64FB00B6B633 /* AppDelegate.swift */; };
@@ -39,10 +39,10 @@
 		108F0EBE201CD08500050712 /* MomoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomoData.swift; sourceTree = "<group>"; };
 		108F0ECA201CD14A00050712 /* ThinkMemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThinkMemo.xcdatamodel; sourceTree = "<group>"; };
 		22D16A882DC4DEA3BC33D763 /* Pods-ThinkMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkMemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkMemo/Pods-ThinkMemo.release.xcconfig"; sourceTree = "<group>"; };
+		30016EFA201D4BA10030F070 /* KeywordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
+		30016EFB201D4BA20030F070 /* KeywordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeywordCell.xib; sourceTree = "<group>"; };
 		301AA0A6201D0CB30033ECDA /* Keyword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Keyword.storyboard; sourceTree = "<group>"; };
-		301AA0A9201D0CD30033ECDA /* KeywordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeywordCell.xib; sourceTree = "<group>"; };
 		301AA0AA201D0CD30033ECDA /* KeywordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordVC.swift; sourceTree = "<group>"; };
-		301AA0AB201D0CD30033ECDA /* KeywordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCell.swift; sourceTree = "<group>"; };
 		301AA0AF201D0CD80033ECDA /* CombineWordsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineWordsVC.swift; sourceTree = "<group>"; };
 		301AA0B7201D3BD20033ECDA /* CompleteCombineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteCombineVC.swift; sourceTree = "<group>"; };
 		30242D19201C64FB00B6B633 /* ThinkMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,11 +90,11 @@
 			isa = PBXGroup;
 			children = (
 				72FA9E7D201D4528000ADF9E /* KeywordNavigation.swift */,
-				301AA0AB201D0CD30033ECDA /* KeywordCell.swift */,
-				301AA0A9201D0CD30033ECDA /* KeywordCell.xib */,
 				301AA0AA201D0CD30033ECDA /* KeywordVC.swift */,
 				301AA0AF201D0CD80033ECDA /* CombineWordsVC.swift */,
 				301AA0B7201D3BD20033ECDA /* CompleteCombineVC.swift */,
+				30016EFA201D4BA10030F070 /* KeywordCell.swift */,
+				30016EFB201D4BA20030F070 /* KeywordCell.xib */,
 			);
 			path = Keyword;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				30242D24201C64FB00B6B633 /* Assets.xcassets in Resources */,
 				30242D22201C64FB00B6B633 /* Main.storyboard in Resources */,
 				301AA0A7201D0CB30033ECDA /* Keyword.storyboard in Resources */,
-				301AA0AC201D0CD30033ECDA /* KeywordCell.xib in Resources */,
+				30016EFD201D4BA20030F070 /* KeywordCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,9 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB20DF92201CEE7000262002 /* HeaderMemoCell.swift in Sources */,
+				30016EFC201D4BA20030F070 /* KeywordCell.swift in Sources */,
 				108F0ECB201CD14A00050712 /* ThinkMemo.xcdatamodeld in Sources */,
 				CB20DF90201CEE3000262002 /* MemoCell.swift in Sources */,
-				301AA0AE201D0CD30033ECDA /* KeywordCell.swift in Sources */,
 				108F0EC0201CD08500050712 /* DataSync.swift in Sources */,
 				722F9E3F201C6E9F003F4757 /* NewMemoViewController.swift in Sources */,
 				301AA0B8201D3BD20033ECDA /* CompleteCombineVC.swift in Sources */,

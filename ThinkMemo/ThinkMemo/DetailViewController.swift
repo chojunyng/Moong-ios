@@ -205,9 +205,8 @@ class DetailViewController: UIViewController {
         if let keywordNavigation = UIStoryboard(name: "Keyword", bundle: nil).instantiateInitialViewController() as? KeywordNavigation {
             
             if let keywordVC = keywordNavigation.topViewController as? KeywordVC {
-                if let itemKeywords = item.keywords {
-                    keywordVC.data = item
-                    keywordVC.keywords = itemKeywords
+                if let itemKeywords = item.keywords { 
+                    keywordVC.data = data
                     self.present(keywordNavigation, animated: true, completion: nil)
                 } else {
                     if let keywordErrorViewController = self.storyboard?.instantiateViewController(withIdentifier: "KeywordErrorMemoViewController") as? KeywordErrorViewController {
