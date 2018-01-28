@@ -13,6 +13,7 @@ class KeywordVC : UIViewController {
     // 앱 델리게이트 객체의 참조 정보를 읽어온다
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    var data: MemoData!
     var keywords = [String]()
     
     @IBOutlet var keywordColvw: UICollectionView! {
@@ -43,7 +44,6 @@ class KeywordVC : UIViewController {
             self.navigationController?.pushViewController(combineWordsVC, animated: true)
         }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

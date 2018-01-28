@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
     // 앱 델리게이트 객체의 참조 정보를 읽어온다
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+//    var timer: Timer!
+    
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         let dateFormatter = DateFormatter()
@@ -83,7 +85,7 @@ class DetailViewController: UIViewController {
     
     private lazy var resultTextView: UITextView = {
         let resultTextView = UITextView()
-        resultTextView.text = "정리된 말 정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말정리된 말"
+        resultTextView.text = ""
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 10.0
         let attributes = [NSAttributedStringKey.paragraphStyle: style,
@@ -204,15 +206,25 @@ class DetailViewController: UIViewController {
             
             if let keywordVC = keywordNavigation.topViewController as? KeywordVC {
                 if let itemKeywords = item.keywords {
+                    keywordVC.data = item
                     keywordVC.keywords = itemKeywords
                     self.present(keywordNavigation, animated: true, completion: nil)
                 } else {
-                    print("no keywords")
+                    if let keywordErrorViewController = self.storyboard?.instantiateViewController(withIdentifier: "KeywordErrorMemoViewController") as? KeywordErrorViewController {
+                        
+                        keywordErrorViewController.modalPresentationStyle = .overCurrentContext
+                        self.present(keywordErrorViewController, animated: false, completion: nil)
+                    }
                 }
             }
         }
     }
 
+//    @objc private func repeatReloadView() {
+//        print("reload")
+//        self.view.setNeedsDisplay()
+//    }
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
@@ -268,6 +280,15 @@ class DetailViewController: UIViewController {
         // 데이터 처리
         // 코어 데이터에 저장된 데이터를 가져온다.
         appDelegate.memolist = dao.fetch()
+        
+        
+//        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(repeatReloadView), userInfo: nil, repeats: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+//        timer.invalidate()
     }
 }
 
