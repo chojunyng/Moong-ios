@@ -21,6 +21,10 @@ class CompleteCombineVC: UIViewController {
         }
     }
     
+    @IBAction func backButtonDidTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

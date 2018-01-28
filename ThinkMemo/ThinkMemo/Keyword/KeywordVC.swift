@@ -31,6 +31,20 @@ class KeywordVC : UIViewController {
     let MaximumNumberOfTaps = 3
     var selectedCells = NSMutableArray()
     
+    
+    @IBAction func backButtonDidTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func nextButtonDidTapped(_ sender: UIButton) {
+
+        if let combineWordsVC = self.storyboard?.instantiateViewController(withIdentifier: "CombineWordsVC") as? CombineWordsVC {
+
+            self.navigationController?.pushViewController(combineWordsVC, animated: true)
+        }
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true

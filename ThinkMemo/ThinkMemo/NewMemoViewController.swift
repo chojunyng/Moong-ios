@@ -54,13 +54,7 @@ class NewMemoViewController: UIViewController {
         // 코어 데이터에 메모 데이터를 추가한다.
         dao.insert(data)
         
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailViewController = mainStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            
-            self.view.endEditing(true)
-            detailViewController.data = data
-            UIApplication.shared.keyWindow?.rootViewController = detailViewController
-        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: Life Cycle
