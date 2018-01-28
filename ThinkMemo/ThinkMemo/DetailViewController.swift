@@ -147,14 +147,7 @@ class DetailViewController: UIViewController {
     // MARK: Methods
     
     @objc private func backButtonDidTapped(_ sender: UIButton) {
-        if let navigation = navigationController {
-            navigation.popViewController(animated: true)
-        } else {
-            if let mainViewController = self.storyboard?.instantiateInitialViewController() {
-                
-                UIApplication.shared.keyWindow?.rootViewController = mainViewController
-            }
-        }
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func deleteButtonDidTapped(_ sender: UIButton) {
@@ -205,19 +198,19 @@ class DetailViewController: UIViewController {
             
             item.keywords = strArray
             self.dao.update(data: item)
-            
         }
         
-        defer {
+        if let keywordNavigation = UIStoryboard(name: "Keyword", bundle: nil).instantiateInitialViewController() as? KeywordNavigation {
             
-            if let keywordVC = UIStoryboard(name: "Keyword", bundle: nil).instantiateViewController(withIdentifier: "KeywordVC") as? KeywordVC {
-            
-                keywordVC.keywords = item.keywords!
-            
-                self.present(keywordVC, animated: false, completion: nil)
+            if let keywordVC = keywordNavigation.topViewController as? KeywordVC {
+                if let itemKeywords = item.keywords {
+                    keywordVC.keywords = itemKeywords
+                    self.present(keywordNavigation, animated: true, completion: nil)
+                } else {
+                    print("no keywords")
+                }
             }
         }
-        
     }
 
     // MARK: Life Cycle

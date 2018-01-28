@@ -20,13 +20,6 @@ class CombineWordsVC: UIViewController {
             
         }
     }
-    @IBOutlet var backButton: UIButton! {
-        didSet {
-            backButton.addTarget(self,
-                                 action: #selector(popToKeywordVC),
-                                 for: .touchUpInside)
-        }
-    }
     
     @IBOutlet var containerView: UIView! {
         didSet {
@@ -52,6 +45,11 @@ class CombineWordsVC: UIViewController {
         action: #selector(keyboardWillHide)
     )
     
+    @IBAction func backButtonDidTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(tapGesture)
@@ -69,9 +67,6 @@ class CombineWordsVC: UIViewController {
 extension CombineWordsVC {
     @objc func keyboardWillHide() {
         self.textView.endEditing(true)
-    }
-    @objc func popToKeywordVC() {
-        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 extension CombineWordsVC : UICollectionViewDelegateFlowLayout {
@@ -97,6 +92,7 @@ extension CombineWordsVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = wordsColvw.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath) as! KeywordCell
         cell.backgroundColor = UIColor.init(hex: 0xffcd00)
+        cell.title.textColor = .white
         
         return cell
     }
