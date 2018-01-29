@@ -121,15 +121,15 @@
 			isa = PBXGroup;
 			children = (
 				301AA0A8201D0CC40033ECDA /* Keyword */,
+				108F0EB5201CD05B00050712 /* Data */,
+				30242D1C201C64FB00B6B633 /* AppDelegate.swift */,
+				722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */,
 				CB20DF8B201CEDCE00262002 /* MainViewController.swift */,
 				CB20DF8F201CEE3000262002 /* MemoCell.swift */,
 				CB20DF91201CEE7000262002 /* HeaderMemoCell.swift */,
-				108F0EB5201CD05B00050712 /* Data */,
-				30242D1C201C64FB00B6B633 /* AppDelegate.swift */,
 				722F9E40201C7EEC003F4757 /* DetailViewController.swift */,
 				72FA9E7F201D4ADB000ADF9E /* KeywordErrorViewController.swift */,
 				722F9E42201CB686003F4757 /* DeleteMemoViewController.swift */,
-				722F9E3E201C6E9F003F4757 /* NewMemoViewController.swift */,
 				30242D20201C64FB00B6B633 /* Main.storyboard */,
 				722F9E36201C6BA0003F4757 /* NewMemo.storyboard */,
 				301AA0A6201D0CB30033ECDA /* Keyword.storyboard */,
