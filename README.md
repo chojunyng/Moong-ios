@@ -3,7 +3,7 @@
 **'말이되는 글'** 을 쓰고싶은 **'아무말러'** 에게 필요한 서비스! <br />
 
 
-![](https://github.com/chojunyng/think-memo/tree/master/image/sample.gif)
+![](https://github.com/chojunyng/Moong-ios/tree/master/image/sample.gif)
 
 ### Unithon 6th - Team 15
 **Design** 장윤정, 김세진 <br />
